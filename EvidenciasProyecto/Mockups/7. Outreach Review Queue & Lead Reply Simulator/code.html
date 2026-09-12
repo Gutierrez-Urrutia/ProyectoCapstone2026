@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-container-lowest":"#060e20","on-secondary-fixed":"#001e2c","inverse-primary":"#494bd6","tertiary-fixed":"#f0dbff","outline":"#908fa0","on-primary-container":"#0d0096","on-primary-fixed-variant":"#2f2ebe","on-primary":"#1000a9","on-secondary":"#00354a","surface-container":"#171f33","on-error-container":"#ffdad6","tertiary-container":"#b76dff","outline-variant":"#464554","on-surface-variant":"#c7c4d7","surface-container-high":"#222a3d","inverse-surface":"#dae2fd","surface-container-highest":"#2d3449","secondary":"#7bd0ff","on-secondary-container":"#00374d","tertiary":"#ddb7ff","on-tertiary-fixed-variant":"#6900b3","on-error":"#690005","inverse-on-surface":"#283044","on-tertiary":"#490080","surface-bright":"#31394d","tertiary-fixed-dim":"#ddb7ff","error-container":"#93000a","surface-container-low":"#131b2e","secondary-fixed-dim":"#7bd0ff","primary-fixed-dim":"#c0c1ff","on-secondary-fixed-variant":"#004c69","surface-tint":"#c0c1ff","on-surface":"#dae2fd","on-background":"#dae2fd","primary-fixed":"#e1e0ff","secondary-container":"#00a6e0","primary-container":"#8083ff","surface-variant":"#2d3449","error":"#ffb4ab","surface-dim":"#0b1326","background":"#0b1326","on-tertiary-container":"#400071","on-tertiary-fixed":"#2c0051","primary":"#c0c1ff","surface":"#0b1326","secondary-fixed":"#c4e7ff","on-primary-fixed":"#07006c"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"gutter-mobile":"0.75rem","space-lg":"1.5rem","space-xl":"2.5rem","space-xs":"0.25rem","space-sm":"0.5rem","space-md":"1rem","margin":"2rem","margin-mobile":"1rem","gutter":"1.5rem"},"fontFamily":{"headline-lg":["Inter"],"headline-xl-mobile":["Inter"],"title-sm":["Inter"],"body-lg":["Inter"],"title-md":["Inter"],"label-sm":["Inter"],"headline-md":["Inter"],"headline-sm":["Inter"],"display-hero-mobile":["Inter"],"headline-xl":["Inter"],"label-md":["Inter"],"code-mono":["JetBrains Mono"],"body-sm":["Inter"],"display-hero":["Inter"],"body-md":["Inter"],"headline-lg-mobile":["Inter"]},"fontSize":{"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-xl-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"title-sm":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"400"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-hero-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"700"}],"headline-xl":["40px",{"lineHeight":"48px","letterSpacing":"-0.025em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"500"}],"code-mono":["12px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"18px","letterSpacing":"0.005em","fontWeight":"400"}],"display-hero":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"400"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface min-h-screen relative selection:bg-primary-container selection:text-on-primary-container antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/80 backdrop-blur-xl border-b border-outline-variant/20"><div class="h-16 px-space-md lg:px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary-container via-inverse-primary to-secondary flex items-center justify-center shadow-lg shadow-inverse-primary/20 ring-1 ring-white/20"><span class="material-symbols-outlined text-white text-[18px]">neurology</span></div><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-title-md text-on-surface tracking-tight">NoonDalton</span><span class="font-title-sm text-primary">AI Suite</span></div></div></div><div class="h-4 w-px bg-outline-variant/40 hidden md:block"></div><div class="hidden md:flex items-center gap-space-xs"><span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-code-mono text-label-sm uppercase tracking-wider border border-primary/20">MARKETGEN-AI V2.4 ENTERPRISE</span><span class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-low text-secondary font-label-sm border border-secondary/20"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>Live Pipeline Active</span></div></div><div class="flex items-center gap-space-sm lg:gap-space-md"><button class="flex items-center gap-space-md px-3 py-1.5 rounded-lg bg-surface-container-low/90 hover:bg-surface-container border border-outline-variant/30 text-on-surface-variant hover:text-on-surface text-body-sm transition-all" type="button"><span class="material-symbols-outlined text-[18px]">search</span><span class="hidden sm:inline font-body-sm">Búsqueda o comando...</span><kbd class="hidden sm:inline-block px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-code-mono text-label-sm">⌘K</kbd></button><div class="relative hidden lg:block"><button class="flex items-center gap-space-xs px-2.5 py-1.5 rounded-lg bg-surface-container-low text-on-surface border border-outline-variant/30 text-label-md hover:bg-surface-container transition-colors" type="button"><span class="w-2 h-2 rounded-full bg-emerald-400"></span><span>Producción (Azure Gov)</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span></button></div><button aria-label="Notificaciones" class="relative p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary ring-2 ring-surface-container-lowest animate-ping"></span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary"></span></button><div class="h-4 w-px bg-outline-variant/40 hidden sm:block"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/50 flex items-center justify-center text-primary font-title-sm ring-1 ring-primary/20">ND</div><div class="hidden xl:flex flex-col text-left"><span class="font-title-sm text-on-surface leading-none">Admin</span><span class="font-label-sm text-on-surface-variant">NoonDalton Corp</span></div><span class="material-symbols-outlined text-[16px] text-on-surface-variant hidden xl:block">expand_more</span></div></div></div></header><aside class="fixed top-16 left-0 bottom-0 w-64 z-40 bg-surface-container-lowest/90 backdrop-blur-xl border-r border-outline-variant/20 hidden md:flex flex-col justify-between p-space-md"><div class="flex flex-col gap-space-md"><div class="px-2"><span class="font-label-sm uppercase tracking-wider text-outline text-[10px]">Plataforma B2B</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-surface-container-high text-on-surface font-semibold shadow-sm shadow-primary-container/10 border-l-2 border-primary"><a aria-current="page" class="group flex items-center justify-between px-3 py-2 rounded-lg transition-colors bg-surface-container-high text-on-surface font-semibold shadow-sm shadow-primary-container/10 border-l-2 border-primary" data-path="dashboard-ejecutivo" href="#"><span class="font-medium">Dashboard Ejecutivo</span><span class="w-1.5 h-1.5 rounded-full bg-primary shadow-sm shadow-primary"></span></a><a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low text-body-md transition-colors" data-path="embudo-pipeline" href="#"><span class="font-medium">Embudo &amp; Pipeline</span></a><a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low text-body-md transition-colors" data-path="secuencias-ia" href="#"><span class="font-medium">Secuencias &amp; IA</span></a><a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low text-body-md transition-colors" data-path="propuestas" href="#"><span class="font-medium">Propuestas</span></a><a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low text-body-md transition-colors" data-path="aprobaciones" href="#"><span class="font-medium">Aprobaciones</span><span class="px-1.5 py-0.5 rounded-full bg-primary-container/30 text-primary font-code-mono text-label-sm border border-primary/20">12</span></a><a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low text-body-md transition-colors" data-path="analitica-roi" href="#"><span class="font-medium">Analítica &amp; ROI</span></a><a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low text-body-md transition-colors" data-path="configuracion" href="#"><span class="font-medium">Configuración</span></a></nav></div><div class="p-space-sm rounded-xl bg-surface-container-low/70 border border-outline-variant/30 flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-on-surface-variant">Sincronización AI</span><span class="font-code-mono text-label-sm text-secondary">99.98%</span></div><div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-primary to-secondary w-[85%] rounded-full"></div></div><div class="flex items-center justify-between text-[11px] text-outline"><span class="font-label-sm">Latencia Azure Gov</span><span class="font-code-mono">14ms</span></div></div></aside><main class="w-full min-h-screen bg-background pt-16 md:pl-64 relative overflow-x-hidden"><div class="flex flex-col w-full">
+<!-- Internal Navigation Bar & Breadcrumb Matrix -->
+<div class="w-full bg-surface-container-lowest/90 px-space-md lg:px-space-lg py-space-md">
+<div class="max-w-[1680px] mx-auto flex flex-col gap-space-sm">
+<!-- Micro-breadcrumbs & Telemetry status -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm text-body-sm">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-code-mono text-label-sm">
+<span class="text-outline hover:text-on-surface transition-colors cursor-pointer">NoonDalton Workspace</span>
+<span class="material-symbols-outlined text-[14px] text-outline-variant">chevron_right</span>
+<span class="text-outline hover:text-on-surface transition-colors cursor-pointer">Aprobaciones &amp; Gobernanza</span>
+<span class="material-symbols-outlined text-[14px] text-outline-variant">chevron_right</span>
+<span class="text-primary font-medium flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+            Cola de Outreach Human-in-the-Loop
+          </span>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface-container text-secondary text-label-sm font-code-mono shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-secondary">verified_user</span>
+<span>POLÍTICA STRICT-SOC2: ACTIVA</span>
+</div>
+<div class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-code-mono">
+<span class="material-symbols-outlined text-[14px] text-primary">psychology</span>
+<span>MODELO: DeepSeek-R1 / V3 (Hybrid Engine)</span>
+</div>
+</div>
+</div>
+<!-- Main Operational Ribbon -->
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md pt-space-xs">
+<!-- View Toggle Pills -->
+<div class="flex items-center gap-space-xs bg-surface-container-lowest p-1 rounded-xl shadow-inner">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container-high text-on-surface shadow-sm font-title-sm text-body-md transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">inbox</span>
+<span>Cola de Revisión Humana</span>
+<span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-code-mono text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
+              12 Urgentes SLA &lt; 45m
+            </span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors font-title-sm text-body-md" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+<span>Historial y Métricas de Envío</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-outline font-code-mono text-label-sm">
+              328 despachados · 99.4% entrega
+            </span>
+</button>
+</div>
+<!-- Global Batch and Simulator Trigger Actions -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Filter by campaign dropdown -->
+<div class="relative">
+<button class="flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container text-on-surface text-label-md hover:bg-surface-container-high transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">tune</span>
+<span class="text-on-surface-variant">Campaña:</span>
+<span class="font-medium text-on-surface">Q3 Inbound Ops Automation</span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</button>
+</div>
+<!-- Simulator Launcher Button -->
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-primary/20 via-tertiary-container/30 to-secondary/20 hover:from-primary/30 hover:to-secondary/30 text-primary-fixed font-title-sm text-body-sm shadow-md transition-all" id="btn-open-simulator" onclick="document.getElementById('simulator-modal').classList.remove('hidden')" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary animate-bounce">bolt</span>
+<span>⚡ Abrir Simulador Inbound</span>
+</button>
+<!-- Safe Bulk Approve Action -->
+<div class="flex items-center">
+<button class="flex items-center gap-2 px-4 py-2 rounded-l-lg bg-inverse-primary hover:bg-primary-container text-on-primary font-title-sm text-body-sm shadow-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">done_all</span>
+<span>Aprobar Todo el Lote (12)</span>
+</button>
+<button class="px-2 py-2 rounded-r-lg bg-on-primary-fixed-variant hover:bg-primary-container text-on-primary transition-colors shadow-md" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_drop_down</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Split-Pane Cockpit -->
+<div class="w-full max-w-[1680px] mx-auto px-space-md lg:px-space-lg py-space-md flex-1">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- LEFT COLUMN: Queue Triage & Prospects (4 Cols on 12-grid, 380px footprint) -->
+<section class="lg:col-span-5 xl:col-span-4 flex flex-col gap-space-sm">
+<!-- Search, AI Score Segments & Stats Bar -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-sm">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">search</span>
+<input class="w-full pl-9 pr-12 py-2 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-outline text-body-sm focus:outline-none focus:bg-surface-container-high transition-colors font-body-sm" placeholder="Filtrar por nombre, empresa o cargo (⌘K)..." type="text"/>
+<kbd class="absolute right-2.5 top-2 px-1.5 py-0.5 rounded bg-surface-container-highest text-outline font-code-mono text-label-sm">⌘K</kbd>
+</div>
+<div class="flex items-center justify-between gap-1 pt-1 text-label-sm font-code-mono">
+<span class="text-outline">AI CONFIDENCE:</span>
+<div class="flex items-center gap-1.5">
+<button class="px-2 py-1 rounded bg-emerald-950/40 text-emerald-400 hover:bg-emerald-900/50 transition-colors font-semibold" type="button">
+                &gt;90% (8)
+              </button>
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant transition-colors" type="button">
+                80-90% (3)
+              </button>
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-amber-400 transition-colors" type="button">
+                &lt;80% (1)
+              </button>
+</div>
+</div>
+</div>
+<!-- Prospects Scroll Queue Container -->
+<div class="flex flex-col gap-space-xs max-h-[calc(100vh-270px)] overflow-y-auto pr-1">
+<!-- Card 1: ACTIVE SELECTED (Jordan Lee) -->
+<div class="group relative p-space-md rounded-xl bg-surface-container-high shadow-xl cursor-pointer transition-all transform hover:-translate-y-0.5">
+<div class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-primary via-secondary to-inverse-primary rounded-r"></div>
+<div class="flex items-start justify-between gap-space-sm mb-2 pl-2">
+<div class="flex items-center gap-2 min-w-0">
+<div class="relative w-9 h-9 rounded-full bg-gradient-to-br from-inverse-primary to-primary-container flex items-center justify-center text-on-primary font-title-sm text-body-sm flex-shrink-0 shadow-md">
+                  JL
+                  <span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<h2 class="font-title-sm text-body-md text-on-surface truncate">Jordan Lee</h2>
+<span class="material-symbols-outlined text-[14px] text-secondary" title="Verificado en LinkedIn">check_circle</span>
+</div>
+<p class="font-body-sm text-on-surface-variant truncate">VP Marketing @ Acme Growth</p>
+</div>
+</div>
+<!-- AI Confidence Score Pill -->
+<div class="flex flex-col items-end flex-shrink-0">
+<span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 font-code-mono text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">auto_awesome</span>
+                  96% IA
+                </span>
+<span class="text-amber-400 font-code-mono text-[10px] mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">timer</span>
+                  SLA: 37m
+                </span>
+</div>
+</div>
+<!-- Subject & Content snippet -->
+<div class="pl-2 flex flex-col gap-1.5">
+<p class="font-title-sm text-body-sm text-primary line-clamp-1">
+                Estrategia de optimización de back-office con agentes autónomos para Acme
+              </p>
+<p class="font-body-sm text-outline line-clamp-2">
+                Jordan, he visto los recientes cuellos de botella que mencionaste respecto al ciclo de onboarding manual de 4.8h...
+              </p>
+</div>
+<!-- Metadata footer badges -->
+<div class="pl-2 pt-2.5 mt-2 flex flex-wrap items-center justify-between gap-1 text-label-sm font-code-mono text-outline">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant flex items-center gap-1 truncate max-w-[200px]">
+<span class="material-symbols-outlined text-[13px] text-tertiary">attach_file</span>
+                Propuesta: Acme Enterprise 2026
+              </span>
+<span class="text-outline">Hace 8m</span>
+</div>
+</div>
+<!-- Card 2: Marcus Vance -->
+<div class="group p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer shadow-sm">
+<div class="flex items-start justify-between gap-space-sm mb-2">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest flex items-center justify-center text-secondary font-title-sm text-body-sm flex-shrink-0">
+                  MV
+                </div>
+<div class="min-w-0">
+<h2 class="font-title-sm text-body-md text-on-surface truncate">Marcus Vance</h2>
+<p class="font-body-sm text-on-surface-variant truncate">VP of Growth @ FintechScale Dynamics</p>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0">
+<span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 font-code-mono text-label-sm font-bold">
+                  94% IA
+                </span>
+<span class="text-outline font-code-mono text-[10px] mt-1">SLA: 42m</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<p class="font-title-sm text-body-sm text-on-surface truncate">
+                Reducción de latencia en verificación KYC con enjambres IA
+              </p>
+<p class="font-body-sm text-outline line-clamp-1">
+                Marcus, auditando las métricas públicas de aprobación transaccional de FintechScale...
+              </p>
+</div>
+<div class="pt-2 mt-2 flex items-center justify-between text-label-sm font-code-mono text-outline">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">description</span>
+                Whitepaper: BPO Autónomo
+              </span>
+<span>Hace 14m</span>
+</div>
+</div>
+<!-- Card 3: Elena Rostova -->
+<div class="group p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer shadow-sm">
+<div class="flex items-start justify-between gap-space-sm mb-2">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest flex items-center justify-center text-tertiary font-title-sm text-body-sm flex-shrink-0">
+                  ER
+                </div>
+<div class="min-w-0">
+<h2 class="font-title-sm text-body-md text-on-surface truncate">Elena Rostova</h2>
+<p class="font-body-sm text-on-surface-variant truncate">Chief Logistics Officer @ OmniLogistics</p>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-primary font-code-mono text-label-sm font-bold">
+                  88% IA
+                </span>
+<span class="text-outline font-code-mono text-[10px] mt-1">SLA: 1h 10m</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<p class="font-title-sm text-body-sm text-on-surface truncate">
+                Orquestación de tickets ERP y despacho en tiempo real
+              </p>
+<p class="font-body-sm text-outline line-clamp-1">
+                Elena, un gusto saludarte. Notamos la reciente expansión logística hacia el corredor Atlántico...
+              </p>
+</div>
+<div class="pt-2 mt-2 flex items-center justify-between text-label-sm font-code-mono text-outline">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-tertiary">feed</span>
+                One-Pager Logística IA
+              </span>
+<span>Hace 22m</span>
+</div>
+</div>
+<!-- Card 4: David K. Chen -->
+<div class="group p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer shadow-sm">
+<div class="flex items-start justify-between gap-space-sm mb-2">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest flex items-center justify-center text-secondary-fixed font-title-sm text-body-sm flex-shrink-0">
+                  DC
+                </div>
+<div class="min-w-0">
+<h2 class="font-title-sm text-body-md text-on-surface truncate">David K. Chen</h2>
+<p class="font-body-sm text-on-surface-variant truncate">Director of RevOps @ HealthBridge</p>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-primary font-code-mono text-label-sm font-bold">
+                  82% IA
+                </span>
+<span class="text-outline font-code-mono text-[10px] mt-1">SLA: 1h 45m</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<p class="font-title-sm text-body-sm text-on-surface truncate">
+                Gobernanza SOC-2 y pipelines conformes HIPAA
+              </p>
+<p class="font-body-sm text-outline line-clamp-1">
+                David, entiendo la extrema rigurosidad requerida al desplegar LLMs sobre registros de salud...
+              </p>
+</div>
+<div class="pt-2 mt-2 flex items-center justify-between text-label-sm font-code-mono text-outline">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">verified</span>
+                Caso HealthBridge HIPAA
+              </span>
+<span>Hace 35m</span>
+</div>
+</div>
+<!-- Card 5: Sarah Al-Mansoor (FLAGGED FOR STRICT REVIEW) -->
+<div class="group p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer shadow-sm">
+<div class="flex items-start justify-between gap-space-sm mb-2">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest flex items-center justify-center text-amber-400 font-title-sm text-body-sm flex-shrink-0">
+                  SA
+                </div>
+<div class="min-w-0">
+<h2 class="font-title-sm text-body-md text-on-surface truncate">Sarah Al-Mansoor</h2>
+<p class="font-body-sm text-on-surface-variant truncate">VP InfoSec @ CyberShield</p>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0">
+<span class="px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 font-code-mono text-label-sm font-bold">
+                  74% IA
+                </span>
+<span class="text-error font-code-mono text-[10px] mt-1 flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[10px]">gpp_maybe</span>
+                  Revisar
+                </span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<p class="font-title-sm text-body-sm text-on-surface truncate">
+                Blindaje perimetral de agentes DeepSeek
+              </p>
+<div class="flex items-center gap-1.5 text-amber-300 font-code-mono text-label-sm mt-0.5">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+<span>Requiere validación manual estricta</span>
+</div>
+</div>
+<div class="pt-2 mt-2 flex items-center justify-between text-label-sm font-code-mono text-outline">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-tertiary">shield</span>
+                Security Brief
+              </span>
+<span>Hace 48m</span>
+</div>
+</div>
+</div>
+</section>
+<!-- RIGHT COLUMN: WYSIWYG Outreach Cockpit & Action Dock (8 cols on 12-grid) -->
+<section class="lg:col-span-7 xl:col-span-8 flex flex-col gap-space-sm">
+<!-- Outreach Header & Envelope Context -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-xs">
+<!-- Channel / Orchestration Pills -->
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-secondary text-label-sm font-code-mono flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">send</span>
+                Canal: LinkedIn InMail + Email Dual-Touch
+              </span>
+<span class="px-2.5 py-1 rounded-full bg-emerald-950/30 text-emerald-400 text-label-sm font-code-mono flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                Voz de Marca Verificada (100% Match)
+              </span>
+</div>
+<!-- Preview vs Manual Edit Mode Segmented Switch -->
+<div class="flex items-center bg-surface-container-lowest p-1 rounded-lg">
+<button class="px-3 py-1 rounded-md bg-surface-container-high text-on-surface text-label-md font-title-sm shadow-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px] text-primary">visibility</span>
+<span>Vista Previa Renderizada</span>
+</button>
+<button class="px-3 py-1 rounded-md text-on-surface-variant hover:text-on-surface text-label-md font-title-sm flex items-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span>Modo Edición Manual</span>
+</button>
+</div>
+</div>
+<!-- Metadata Field Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-xs font-code-mono text-body-sm pt-space-xs">
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-lowest text-on-surface-variant">
+<span class="text-outline text-label-sm uppercase">De:</span>
+<span class="text-on-surface font-medium truncate">alex.rivera@noondalton.ai</span>
+<span class="text-secondary text-[11px] ml-auto">NoonDalton Corp (Auth DNS)</span>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-lowest text-on-surface-variant">
+<span class="text-outline text-label-sm uppercase">Para:</span>
+<span class="text-on-surface font-medium truncate">Jordan Lee &lt;j.lee@acme-growth.com&gt;</span>
+<span class="text-emerald-400 text-[11px] ml-auto">Validado (ZeroBounce)</span>
+</div>
+<div class="md:col-span-2 flex items-center gap-2 p-2.5 rounded-lg bg-surface-container-lowest text-on-surface">
+<span class="text-outline text-label-sm uppercase font-code-mono flex-shrink-0">Asunto:</span>
+<span class="font-title-sm text-body-md text-primary truncate">
+                Estrategia de optimización de back-office con agentes autónomos para Acme
+              </span>
+</div>
+</div>
+</div>
+<!-- Interactive WYSIWYG Message Canvas with Merge Variables -->
+<div class="p-space-lg lg:p-space-xl rounded-xl bg-surface-container-low shadow-lg flex flex-col gap-space-md min-h-[460px]">
+<div class="flex items-center justify-between pb-space-sm text-on-surface-variant font-code-mono text-label-sm">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-primary">code</span>
+              Variables dinámicas inyectadas por MarketGen-AI
+            </span>
+<span class="text-outline">Última inferencia: hace 2m con temperatura 0.3</span>
+</div>
+<!-- Email Content Body -->
+<div class="flex flex-col gap-space-md font-body-lg text-on-surface leading-relaxed max-w-4xl">
+<p>
+              Hola <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-tertiary-container/20 text-tertiary font-code-mono text-body-sm font-medium" title="Variable de entidad validada">{{first_name: Jordan}}</span>,
+            </p>
+<p>
+              He seguido de cerca la rápida aceleración de <strong>Acme Growth</strong> en el último trimestre. Al analizar los procesos operativos típicos de su segmento, sabemos que el 
+              <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-primary-container/20 text-primary-fixed-dim font-code-mono text-body-sm font-medium" title="Punto de dolor identificado vía scraping inteligente y CRM">
+<span class="material-symbols-outlined text-[13px]">troubleshoot</span>
+                {{pain_point: cuellos de botella en onboarding de 4.8h}}
+              </span> 
+              suele impactar directamente en la retención inicial de clientes B2B.
+            </p>
+<p>
+              En NoonDalton combinamos personal humano altamente calificado con agentes autónomos supervisados (DeepSeek R1 / V3) para mitigar estas cargas operativas, alcanzando una 
+              <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-emerald-500/10 text-emerald-400 font-code-mono text-body-sm font-medium" title="Métrica de ROI proyectada con base en modelo financiero">
+<span class="material-symbols-outlined text-[13px]">trending_up</span>
+                {{roi_metric: reducción del 42% de costos operativos}}
+              </span> 
+              en menos de 60 días de integración sin fricciones sobre su stack tecnológico.
+            </p>
+<!-- Embedded Secure Asset Chip Card -->
+<div class="my-space-xs p-space-md rounded-xl bg-surface-container flex items-center justify-between gap-space-md shadow-md">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-tertiary flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">picture_as_pdf</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-body-sm text-on-surface truncate">
+                      {{asset_link: Propuesta_Acme_ND_2026.pdf}}
+                    </span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-lowest text-primary font-code-mono text-[10px]">
+                      SOC-2 Encriptado
+                    </span>
+</div>
+<p class="font-body-sm text-outline truncate">Generado dinámicamente con desglose de inversión y SLA de 99.9%</p>
+</div>
+</div>
+<a class="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-title-sm text-body-sm transition-colors flex items-center gap-1 flex-shrink-0" href="#">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Previsualizar</span>
+</a>
+</div>
+<p>
+              ¿Tendrías 15 minutos este jueves o viernes para revisar cómo trasladar esta arquitectura a los flujos de Acme?
+            </p>
+<div class="pt-space-xs">
+<a class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container text-primary font-title-sm text-body-sm shadow-sm transition-all" href="#">
+<span class="material-symbols-outlined text-[16px] text-secondary">calendar_today</span>
+<span>{{cta: Agenda 15m con Director de Soluciones - Calendario de Alex}}</span>
+</a>
+</div>
+<!-- Email Signature -->
+<div class="pt-space-md mt-space-sm text-on-surface-variant font-body-sm">
+<p class="font-semibold text-on-surface">Alex Rivera</p>
+<p class="text-outline">Enterprise Solutions Director | NoonDalton AI Suite</p>
+<p class="text-outline text-label-sm font-code-mono">alex.rivera@noondalton.ai · +1 (800) 555-0199</p>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Critical Action Dock & Real-time Telemetry -->
+<div class="p-space-md rounded-xl bg-surface-container shadow-2xl flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<!-- Left Action Group: Regeneration, Manual Edit, Discard -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<!-- AI Regeneration with Dropdown -->
+<div class="relative group">
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface text-label-md font-title-sm transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px] text-tertiary">auto_fix_high</span>
+<span>✨ Regenerar con IA</span>
+<span class="material-symbols-outlined text-[16px] text-outline">arrow_drop_down</span>
+</button>
+<!-- Flyout options -->
+<div class="hidden group-hover:flex absolute left-0 bottom-full mb-1.5 w-60 flex-col rounded-xl bg-surface-container-high p-1 shadow-2xl z-30">
+<a class="px-3 py-2 rounded-lg hover:bg-surface-container text-body-sm text-on-surface flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-[16px] text-primary">compress</span>
+<span>Hacerlo más breve (-30% palabras)</span>
+</a>
+<a class="px-3 py-2 rounded-lg hover:bg-surface-container text-body-sm text-on-surface flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-[16px] text-emerald-400">query_stats</span>
+<span>Enfocar en ROI y métricas duras</span>
+</a>
+<a class="px-3 py-2 rounded-lg hover:bg-surface-container text-body-sm text-on-surface flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-[16px] text-secondary">business</span>
+<span>Tono más directo C-Suite</span>
+</a>
+</div>
+</div>
+<!-- Manual Text Edit Mode -->
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface text-label-md font-title-sm transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>✏️ Editar Texto Manual</span>
+</button>
+<!-- Subtle Pause/Discard Button -->
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-low hover:bg-error-container/30 text-on-surface-variant hover:text-error text-label-md font-title-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">pause_circle</span>
+<span>✕ Descartar / Pausar</span>
+</button>
+</div>
+<!-- Right Primary Approval Button -->
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-title-sm text-body-md shadow-lg shadow-emerald-950/50 transition-all transform active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<span class="font-bold">✓ Aprobar y Enviar Correo</span>
+<kbd class="px-1.5 py-0.5 rounded bg-emerald-800 text-white font-code-mono text-label-sm">⌘ + Enter</kbd>
+</button>
+</div>
+<!-- Real-Time Deliverability & Cognitive Telemetry Ribbon -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs font-code-mono text-label-sm text-outline">
+<div class="flex flex-wrap items-center gap-space-md">
+<span class="flex items-center gap-1 text-emerald-400">
+<span class="material-symbols-outlined text-[14px]">format_image_left</span>
+                Spam Score: 0.1/10 (Excelente)
+              </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                Tiempo de Lectura: 45 seg
+              </span>
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[14px]">insights</span>
+                Tasa Apertura Estimada: 64% (Benchmark Sector: 31%)
+              </span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span>Next in Queue:</span>
+<span class="text-primary font-medium">Marcus Vance (FintechScale Dynamics)</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Integrated Float Modal: Inbound Reply Simulator (DeepSeek R1/V3 Sandbox) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-space-md bg-surface-container-lowest/80 backdrop-blur-md transition-all" id="simulator-modal">
+<div class="w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl bg-surface-container-low shadow-2xl flex flex-col gap-space-md p-space-lg lg:p-space-xl relative">
+<!-- Close Trigger -->
+<button class="absolute top-5 right-5 p-2 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" onclick="document.getElementById('simulator-modal').classList.add('hidden')" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+<!-- Simulator Header & Lead Context Card -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-tertiary-container via-inverse-primary to-secondary flex items-center justify-center text-white shadow-md">
+<span class="material-symbols-outlined text-[18px]">psychology_alt</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">
+            🤖 Simulador de Objeciones y Respuestas Inbound (DeepSeek R1 / V3)
+          </h2>
+</div>
+<p class="font-body-md text-on-surface-variant">
+          Ponga a prueba la resistencia del agente autónomo contra posibles objeciones del prospecto y valide la contra-respuesta antes de enviar el outreach.
+        </p>
+<!-- Prospect Snapshot Pill Box -->
+<div class="flex flex-wrap items-center gap-space-sm p-3 rounded-xl bg-surface-container mt-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span class="font-code-mono text-label-sm text-outline">LEAD EN SIMULACIÓN:</span>
+<span class="font-title-sm text-body-sm text-on-surface font-semibold">Jordan Lee</span>
+</div>
+<span class="text-outline-variant">|</span>
+<span class="font-body-sm text-secondary">Acme Growth</span>
+<span class="text-outline-variant">|</span>
+<span class="font-body-sm text-on-surface-variant">VP Marketing</span>
+<span class="text-outline-variant">|</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-code-mono text-label-sm">
+            Stack Detectado: Salesforce + HubSpot + Slack
+          </span>
+</div>
+</div>
+<!-- Inbound Prospect Simulated Message Box -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-label-sm font-code-mono">
+<span class="text-secondary flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[14px]">forward_to_inbox</span>
+            MENSAJE SIMULADO DE ENTRADA DEL CLIENTE (OBJECIÓN TÉCNICA):
+          </span>
+<span class="text-outline">Probabilidad de Ocurrencia: 78.4%</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-highest/60 text-on-surface font-body-md leading-relaxed shadow-inner">
+          “Gracias por contactar, Alex. Nos interesa bastante reducir el tiempo de onboarding, pero ¿cómo se integra exactamente esto con nuestro Hubspot y Salesforce actual? ¿Tienen casos de éxito en empresas con &gt;500 empleados?”
+        </div>
+</div>
+<!-- Interactive Trigger for Cogntive Execution -->
+<div class="flex items-center justify-between">
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-primary-container via-inverse-primary to-secondary hover:brightness-110 text-on-primary font-title-sm text-body-sm shadow-md transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">neurology</span>
+<span>⚡ Simular Razonamiento y Contra-Respuesta IA</span>
+</button>
+<span class="font-code-mono text-label-sm text-outline">
+          Latencia de inferencia: 420ms · Token Cost: $0.0014
+        </span>
+</div>
+<!-- AI Cognition & Proposed Auto-Response Stream -->
+<div class="flex flex-col gap-space-md">
+<!-- DeepSeek Chain-of-Thought Stream Box -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest font-code-mono text-label-sm text-on-surface-variant flex flex-col gap-2">
+<div class="flex items-center justify-between text-secondary">
+<span class="flex items-center gap-1.5 font-bold">
+<span class="material-symbols-outlined text-[16px] text-secondary">insights</span>
+              RAZONAMIENTO COGNITIVO (DEEPSEEK R1 COG-STREAM):
+            </span>
+<span class="text-emerald-400 text-[10px]">VERIFICADO CONFORME REGLAS SOC-2</span>
+</div>
+<div class="pl-3 space-y-1 text-[11px] leading-relaxed text-outline-variant">
+<p><span class="text-primary font-semibold">1. Detección de intenciones:</span> Detectadas 2 objeciones críticas: (a) Factibilidad de integración CRM híbrida (Salesforce/HubSpot); (b) Prueba social y escalabilidad Enterprise (&gt;500 empleados).</p>
+<p><span class="text-secondary font-semibold">2. Estrategia de respuesta:</span> Confirmar conectores nativos pre-construidos REST/GraphQL sin código, citar caso de éxito similar (Omni Logistics con 850 empleados), anexar automáticamente el 'One-Pager de Integraciones API &amp; SOC-2'.</p>
+<p><span class="text-tertiary font-semibold">3. Tono &amp; Sentimiento:</span> Reducción de incertidumbre técnica, alta solvencia, sin insistencia agresiva.</p>
+</div>
+</div>
+<!-- Generated Counter-Response Draft Box -->
+<div class="p-space-md rounded-xl bg-surface-container text-on-surface flex flex-col gap-space-sm shadow-md">
+<div class="flex items-center justify-between text-label-sm font-code-mono">
+<span class="text-emerald-400 font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">smart_toy</span>
+              BORRADOR SUGERIDO DE CONTRA-RESPUESTA AUTOMÁTICA (1-CLICK SEND):
+            </span>
+<span class="text-outline">Score de empatía y solvencia: 98/100</span>
+</div>
+<div class="font-body-md text-on-surface leading-relaxed flex flex-col gap-2 bg-surface-container-lowest p-4 rounded-lg">
+<p>
+              Hola Jordan, excelente punto.
+            </p>
+<p>
+              Respecto a la arquitectura: NoonDalton opera mediante conectores bidireccionales nativos con <strong>Salesforce</strong> y <strong>HubSpot</strong> con sincronización en tiempo real (vía Webhooks seguros y OAuth2). No requiere migraciones ni desarrollos a medida.
+            </p>
+<p>
+              En cuanto a escala, implementamos recientemente un sistema idéntico para una empresa de logística de <strong>850 empleados</strong>, disminuyendo su cola de tickets en un 55% durante las primeras 3 semanas.
+            </p>
+<p>
+              Te adjunto aquí el <em>One-Pager de Integraciones API &amp; Gobernanza SOC-2</em> para que tu equipo técnico pueda validarlo en 5 minutos:
+            </p>
+<!-- Attachment auto-injected -->
+<div class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container-high w-fit">
+<span class="material-symbols-outlined text-secondary text-[20px]">inventory_2</span>
+<span class="font-code-mono text-label-sm text-secondary font-semibold">One-Pager_Integraciones_API_SOC2.pdf</span>
+<span class="text-outline text-[11px] font-code-mono">(1.8 MB)</span>
+</div>
+<p class="pt-1">
+              ¿Te parece si coordinamos una sesión técnica de 15 minutos con nuestro Solution Architect?
+            </p>
+</div>
+</div>
+</div>
+<!-- Action Footer for Simulator -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<button class="px-4 py-2 rounded-lg bg-surface-container-highest hover:bg-surface-container text-on-surface text-label-md font-title-sm transition-colors" onclick="document.getElementById('simulator-modal').classList.add('hidden')" type="button">
+          Cerrar Simulador
+        </button>
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container text-on-surface text-label-md font-title-sm transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px] text-tertiary">save</span>
+<span>Guardar Regla en Agente Autónomo</span>
+</button>
+<button class="flex items-center gap-2 px-5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-label-md font-title-sm shadow-md transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Aprobar Plantilla de Respuesta Automática</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+    // Lightweight micro-interactions for keyboard shortcuts & simulation trigger
+    document.addEventListener('keydown', function(event) {
+      // ⌘ + Enter or Ctrl + Enter to approve
+      if ((event.metaKey || event.ctrlKey) && event.key === 'Enter') {
+        alert('✓ Envío de correo aprobado por el operador Humano. Prospecto Jordan Lee despachado a la cola de salida con acuse de recibo.');
+      }
+      // Escape closes modal
+      if (event.key === 'Escape') {
+        const modal = document.getElementById('simulator-modal');
+        if (modal) modal.classList.add('hidden');
+      }
+    });
+  </script>
+</div></main></body></html>

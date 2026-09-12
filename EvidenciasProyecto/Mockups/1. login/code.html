@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-container-lowest":"#060e20","on-secondary-fixed":"#001e2c","inverse-primary":"#494bd6","tertiary-fixed":"#f0dbff","outline":"#908fa0","on-primary-container":"#0d0096","on-primary-fixed-variant":"#2f2ebe","on-primary":"#1000a9","on-secondary":"#00354a","surface-container":"#171f33","on-error-container":"#ffdad6","tertiary-container":"#b76dff","outline-variant":"#464554","on-surface-variant":"#c7c4d7","surface-container-high":"#222a3d","inverse-surface":"#dae2fd","surface-container-highest":"#2d3449","secondary":"#7bd0ff","on-secondary-container":"#00374d","tertiary":"#ddb7ff","on-tertiary-fixed-variant":"#6900b3","on-error":"#690005","inverse-on-surface":"#283044","on-tertiary":"#490080","surface-bright":"#31394d","tertiary-fixed-dim":"#ddb7ff","error-container":"#93000a","surface-container-low":"#131b2e","secondary-fixed-dim":"#7bd0ff","primary-fixed-dim":"#c0c1ff","on-secondary-fixed-variant":"#004c69","surface-tint":"#c0c1ff","on-surface":"#dae2fd","on-background":"#dae2fd","primary-fixed":"#e1e0ff","secondary-container":"#00a6e0","primary-container":"#8083ff","surface-variant":"#2d3449","error":"#ffb4ab","surface-dim":"#0b1326","background":"#0b1326","on-tertiary-container":"#400071","on-tertiary-fixed":"#2c0051","primary":"#c0c1ff","surface":"#0b1326","secondary-fixed":"#c4e7ff","on-primary-fixed":"#07006c"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"gutter-mobile":"0.75rem","space-lg":"1.5rem","space-xl":"2.5rem","space-xs":"0.25rem","space-sm":"0.5rem","space-md":"1rem","margin":"2rem","margin-mobile":"1rem","gutter":"1.5rem"},"fontFamily":{"headline-lg":["Inter"],"headline-xl-mobile":["Inter"],"title-sm":["Inter"],"body-lg":["Inter"],"title-md":["Inter"],"label-sm":["Inter"],"headline-md":["Inter"],"headline-sm":["Inter"],"display-hero-mobile":["Inter"],"headline-xl":["Inter"],"label-md":["Inter"],"code-mono":["JetBrains Mono"],"body-sm":["Inter"],"display-hero":["Inter"],"body-md":["Inter"],"headline-lg-mobile":["Inter"]},"fontSize":{"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-xl-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"title-sm":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"400"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-hero-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"700"}],"headline-xl":["40px",{"lineHeight":"48px","letterSpacing":"-0.025em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"500"}],"code-mono":["12px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"18px","letterSpacing":"0.005em","fontWeight":"400"}],"display-hero":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"400"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface min-h-screen relative selection:bg-primary-container selection:text-on-primary-container"><main class="w-full min-h-screen bg-background relative overflow-x-hidden"><div class="flex flex-col w-full text-on-surface select-none">
+<!-- Top Global Context & Ambient Sandbox Bar -->
+<div class="w-full relative z-50 bg-surface-container-lowest/80 backdrop-blur-md px-4 sm:px-8 py-2.5 flex flex-wrap items-center justify-between gap-3">
+<!-- Sandbox Warning Chip -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-300">
+<span class="material-symbols-outlined text-sm animate-pulse">warning</span>
+<span class="font-label-sm text-label-sm tracking-wider uppercase font-semibold">Modo Sandbox / Demo Activado</span>
+</div>
+<span class="hidden md:inline-block font-code-mono text-code-mono text-on-surface-variant">
+        Entorno de evaluación seguro <span class="text-primary font-medium">(VITE_ENABLE_DEMO_LOGIN: TRUE)</span>
+</span>
+</div>
+<!-- Right Controls: Status & Glassmorphic Language Selector -->
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface-container-high/60">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+<span class="w-2 h-2 rounded-full bg-emerald-400 -ml-3"></span>
+<span class="font-code-mono text-label-sm text-on-surface-variant">Region: us-east (Azure Gov)</span>
+</div>
+<!-- Language Selector -->
+<div class="relative" id="lang-dropdown-wrapper">
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-high/70 hover:bg-surface-container-highest transition-colors font-label-md text-label-md text-on-surface cursor-pointer shadow-sm" id="lang-toggle-btn">
+<span class="text-base" id="active-lang-flag">🇪🇸</span>
+<span id="active-lang-name">Español</span>
+<span class="material-symbols-outlined text-sm text-on-surface-variant transition-transform duration-200" id="lang-chevron">expand_more</span>
+</button>
+<!-- Dropdown Menu -->
+<div class="hidden absolute right-0 mt-2 w-44 rounded-xl bg-surface-container-high/95 backdrop-blur-xl shadow-2xl py-1.5 z-50 transition-all transform origin-top-right" id="lang-menu">
+<button class="w-full px-3 py-2 text-left font-label-md text-label-md hover:bg-surface-container-highest flex items-center justify-between text-on-surface transition-colors" onclick="selectLanguage('🇺🇸', 'English')">
+<span class="flex items-center gap-2"><span>🇺🇸</span> English</span>
+<span class="font-code-mono text-[10px] text-outline">EN-US</span>
+</button>
+<button class="w-full px-3 py-2 text-left font-label-md text-label-md bg-surface-container-highest/80 flex items-center justify-between text-primary transition-colors" onclick="selectLanguage('🇪🇸', 'Español')">
+<span class="flex items-center gap-2"><span>🇪🇸</span> Español</span>
+<span class="material-symbols-outlined text-sm text-primary">check</span>
+</button>
+<button class="w-full px-3 py-2 text-left font-label-md text-label-md hover:bg-surface-container-highest flex items-center justify-between text-on-surface transition-colors" onclick="selectLanguage('🇧🇷', 'Português')">
+<span class="flex items-center gap-2"><span>🇧🇷</span> Português</span>
+<span class="font-code-mono text-[10px] text-outline">PT-BR</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Split-Screen Architecture -->
+<div class="w-full grid grid-cols-1 lg:grid-cols-12 relative">
+<!-- LEFT PANEL: Brand, Autonomous AI Engine, Telemetry (Col 6) -->
+<div class="lg:col-span-6 relative bg-gradient-to-br from-surface-container-lowest via-surface-container-low to-surface-container p-6 sm:p-10 lg:p-14 flex flex-col justify-between overflow-hidden">
+<!-- Decorative Deep Space Ambient Radiance -->
+<div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-primary-container/15 blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-10 right-0 w-80 h-80 rounded-full bg-tertiary-container/10 blur-3xl pointer-events-none"></div>
+<!-- Subtle Tech Grid Canvas Effect (SVG overlay) -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#dae2fd 1px, transparent 1px); background-size: 24px 24px;"></div>
+<div class="relative z-10 flex flex-col space-y-8 max-w-xl">
+<!-- Logo & Enterprise Release Badge -->
+<div class="flex items-center flex-wrap gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary to-tertiary-container flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-on-primary text-2xl font-bold">hub</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm tracking-tight font-bold text-on-surface">NoonDalton</span>
+<span class="font-title-sm text-title-sm text-primary ml-1.5 font-semibold">AI Suite</span>
+</div>
+</div>
+<div class="px-2.5 py-0.5 rounded-full bg-surface-container-highest/80 font-label-sm text-label-sm text-secondary uppercase tracking-wider flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+            MarketGen-AI v2.4 Enterprise
+          </div>
+</div>
+<!-- Editorial Typography Display -->
+<div class="space-y-4 pt-4">
+<p class="font-code-mono text-label-sm text-primary uppercase tracking-widest font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">neurology</span>
+            Autonomous Marketing Architecture
+          </p>
+<h1 class="font-display-hero text-headline-xl sm:text-display-hero font-bold tracking-tight text-on-surface leading-[1.08]">
+            The Autonomous Content Engine for <span class="bg-gradient-to-r from-primary via-secondary to-tertiary bg-clip-text text-transparent">B2B Growth</span>.
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg leading-relaxed">
+            Orquestación agéntica de campañas multicanal impulsada por modelos de frontera, sincronización con CRM en milisegundos y gobernanza enterprise verificable.
+          </p>
+</div>
+<!-- Interactive AI Telemetry & Impact Widget Panel -->
+<div class="space-y-4 pt-2">
+<!-- Main Metric Bento Card -->
+<div class="p-5 rounded-2xl bg-surface-container-high/60 backdrop-blur-md shadow-xl relative overflow-hidden group hover:bg-surface-container-high/80 transition-all duration-300">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Rendimiento Operativo</span>
+<div class="flex items-baseline gap-3 mt-1">
+<span class="font-display-hero-mobile text-display-hero-mobile font-bold text-on-surface tracking-tight">+450%</span>
+<span class="font-label-md text-label-md px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-300 font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_up</span> Pipeline Velocity
+                  </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Benchmark consolidado vs Q3 en cuentas Fortune 500</p>
+</div>
+<!-- Mini Sparkline SVG -->
+<div class="w-28 h-12 flex items-end">
+<svg class="w-full h-full stroke-emerald-400 fill-none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 100 40">
+<path d="M0 35 Q 20 32, 35 24 T 65 18 T 85 8 T 100 4"></path>
+<path d="M0 35 Q 20 32, 35 24 T 65 18 T 85 8 T 100 4 L 100 40 L 0 40 Z" fill="url(#sparkline-grad)" opacity="0.15" stroke="none"></path>
+<defs>
+<lineargradient id="sparkline-grad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#34D399"></stop>
+<stop offset="100%" stop-color="transparent"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+</div>
+<!-- Real-time Agent Inference Strip -->
+<div class="mt-4 pt-3.5 flex flex-wrap items-center justify-between gap-2 text-xs bg-surface-container-lowest/50 -mx-5 -mb-5 px-5 py-2.5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="font-code-mono text-label-sm text-on-surface-variant font-medium">
+                  Model: <span class="text-secondary">DeepSeek R1 &amp; V3 Active</span>
+</span>
+</div>
+<span class="font-code-mono text-label-sm text-outline">Latencia: 142ms · Precisión: 99.4%</span>
+</div>
+</div>
+<!-- Secondary Telemetry Micro-Pill -->
+<div class="flex items-center justify-between p-3.5 rounded-xl bg-surface-container-low/70 backdrop-blur-sm">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-tertiary-container/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-lg">auto_awesome</span>
+</div>
+<div>
+<p class="font-title-sm text-title-sm text-on-surface font-semibold">3.2M Palabras Generadas</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Con brand voice auditado y zero-drift semántico</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm font-code-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Sync Live</span>
+</div>
+</div>
+<!-- Enterprise Testimonial -->
+<div class="p-5 rounded-2xl bg-surface-container-high/40 backdrop-blur-md relative mt-2">
+<p class="font-body-md text-body-md text-on-surface italic leading-relaxed">
+            “MarketGen-AI transformó nuestra cadencia de salida al mercado reduciendo el ciclo de campaña integral de semanas a tan solo minutos con supervisión total.”
+          </p>
+<div class="flex items-center gap-3.5 mt-4">
+<img class="w-10 h-10 rounded-full object-cover ring-2 ring-primary/20" data-alt="Professional studio headshot portrait of Elena Vance VP of Demand Generation, corporate executive confident gaze, dark clean studio backdrop, soft cinematic indigo lighting tone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGnof3mDwI7W8IE_hjH7lP2kFPD9DrcXW_5WAlMfi5iQDzFm1dl5dQq25AtSOu_pGHnRGIzkEAvigMy1cDez9GnpWlLCvuz9aVyA1GGtFmEHNqOwu0CU8R_rIbUfqMnRbaVPokGXxtLVkjoLvbBCucuUqI9Y8kBGpdsgrzW6QfHdKz1kTM_WT_Yc4ZBh4OxlcCLvYqYEUI1xRUAxLDyGnSVnNslgwYVd3VOqcgmTM7u05_QfYUSseR"/>
+<div>
+<h4 class="font-title-sm text-title-sm font-semibold text-on-surface">Elena Vance</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">VP of Demand Gen en ScaleNorth Inc.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Left Panel Footer: Compliance Badges -->
+<div class="relative z-10 pt-8 mt-8 flex flex-wrap items-center gap-3">
+<span class="font-code-mono text-label-sm text-outline uppercase tracking-wider mr-2">Institutional Trust:</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high font-code-mono text-label-sm text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs text-primary">verified_user</span> SOC-2 Type II
+        </span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high font-code-mono text-label-sm text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs text-primary">shield</span> GDPR Compliant
+        </span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high font-code-mono text-label-sm text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs text-primary">lock</span> ISO 27001
+        </span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high font-code-mono text-label-sm text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs text-secondary">cloud_done</span> Azure Encrypted
+        </span>
+</div>
+</div>
+<!-- RIGHT PANEL: Floating Authentication Card & Onboarding (Col 6) -->
+<div class="lg:col-span-6 bg-surface-dim p-6 sm:p-10 lg:p-14 flex items-center justify-center relative">
+<!-- Glow aura for the auth card -->
+<div class="absolute w-full max-w-md h-96 rounded-full bg-primary/10 blur-[100px] pointer-events-none"></div>
+<!-- Auth Container Card -->
+<div class="w-full max-w-md bg-surface-container-low/95 backdrop-blur-2xl rounded-2xl shadow-2xl p-6 sm:p-8 relative z-20 flex flex-col space-y-6">
+<!-- Segmented Tab Bar -->
+<div class="w-full p-1 bg-surface-container-lowest rounded-xl flex items-center relative">
+<button class="flex-1 py-2 rounded-lg font-title-sm text-title-sm font-semibold transition-all duration-200 text-center text-on-primary bg-primary-container shadow-md" id="tab-login" onclick="switchTab('login')">
+            Iniciar Sesión
+          </button>
+<button class="flex-1 py-2 rounded-lg font-title-sm text-title-sm font-semibold transition-all duration-200 text-center text-on-surface-variant hover:text-on-surface flex items-center justify-center gap-1.5" id="tab-register" onclick="switchTab('register')">
+<span>Crear Cuenta</span>
+<span class="px-1.5 py-0.2 text-[10px] font-bold rounded-full bg-tertiary-container/30 text-tertiary tracking-normal uppercase">14 Días Pro</span>
+</button>
+</div>
+<!-- Quick Demo One-Click Access Banner Button -->
+<div class="relative group">
+<button class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-amber-500/20 via-primary/20 to-secondary/20 hover:from-amber-500/30 hover:to-secondary/30 transition-all flex items-center justify-between shadow-inner text-left cursor-pointer" onclick="fillDemoCredentials()" type="button">
+<div class="flex items-center gap-2.5">
+<div class="w-6 h-6 rounded-md bg-amber-400/20 flex items-center justify-center text-amber-300">
+<span class="material-symbols-outlined text-sm font-bold">bolt</span>
+</div>
+<div>
+<p class="font-title-sm text-title-sm font-semibold text-on-surface">Cargar Demo de Administrador</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Acceso seguro pre-configurado para pruebas</p>
+</div>
+</div>
+<span class="font-code-mono text-label-sm text-amber-300 bg-amber-400/10 px-2 py-0.5 rounded uppercase font-bold">1-Click</span>
+</button>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 rounded bg-surface-container-highest text-on-surface font-code-mono text-[11px] whitespace-nowrap pointer-events-none shadow-lg z-30">
+            Pre-rellena admin@noondalton.com y clave de sandbox
+          </div>
+</div>
+<!-- Corporate SSO OAuth Buttons -->
+<div class="space-y-2.5">
+<button class="w-full py-2.5 px-4 rounded-xl bg-surface-container-high hover:bg-surface-container-highest transition-colors flex items-center justify-center gap-3 font-title-sm text-title-sm text-on-surface font-medium cursor-pointer shadow-sm" onclick="simulateOAuth('Google')" type="button">
+<!-- Google Clean SVG -->
+<svg class="w-4 h-4" viewbox="0 0 24 24">
+<path d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z" fill="#4285F4"></path>
+<path d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z" fill="#34A853"></path>
+<path d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.16 0 9.98 0 12s.45 3.84 1.25 5.42l4.03-3.15z" fill="#FBBC05"></path>
+<path d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z" fill="#EA4335"></path>
+</svg>
+<span>Continuar con Google</span>
+</button>
+<button class="w-full py-2.5 px-4 rounded-xl bg-surface-container-high hover:bg-surface-container-highest transition-colors flex items-center justify-center gap-3 font-title-sm text-title-sm text-on-surface font-medium cursor-pointer shadow-sm" onclick="simulateOAuth('Microsoft Azure AD')" type="button">
+<!-- Microsoft SVG -->
+<svg class="w-4 h-4" viewbox="0 0 23 23">
+<path d="M1 1h10v10H1z" fill="#f35325"></path>
+<path d="M12 1h10v10H12z" fill="#81bc06"></path>
+<path d="M1 12h10v10H1z" fill="#05a6f0"></path>
+<path d="M12 12h10v10H12z" fill="#ffba08"></path>
+</svg>
+<span>Continuar con Microsoft Azure AD</span>
+</button>
+</div>
+<!-- Subtle Divider with Centered Label -->
+<div class="relative flex items-center justify-center py-1">
+<div class="w-full h-px bg-surface-container-highest"></div>
+<span class="absolute px-3 bg-surface-container-low font-label-sm text-label-sm text-outline uppercase tracking-wider">O credenciales corporativas</span>
+</div>
+<!-- VIEW 1: LOGIN FORM -->
+<form class="space-y-4" id="form-login" onsubmit="handleAuthSubmit(event, 'login')">
+<!-- Corporate Email -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md font-medium text-on-surface flex justify-between">
+<span>Email Corporativo</span>
+<span class="hidden font-code-mono text-emerald-400 text-[11px] items-center gap-1" id="email-valid-indicator">
+<span class="material-symbols-outlined text-xs">check_circle</span> Verificado
+              </span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-lg">alternate_email</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-all" id="login-email" oninput="validateEmailInput(this)" placeholder="nombre@empresa.com" required="" type="email" value="admin@noondalton.com"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md font-medium text-on-surface">Contraseña</label>
+<button class="font-label-sm text-label-sm text-primary hover:underline cursor-pointer" onclick="openForgotPasswordModal()" type="button">
+                ¿Olvidaste tu contraseña?
+              </button>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-lg">lock</span>
+<input class="w-full pl-10 pr-10 py-2.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-all" id="login-password" placeholder="••••••••••••" required="" type="password" value="NoonDalton@2025!"/>
+<button class="absolute right-3 text-on-surface-variant hover:text-on-surface cursor-pointer p-1" onclick="togglePasswordVisibility('login-password', 'eye-icon-login')" type="button">
+<span class="material-symbols-outlined text-lg" id="eye-icon-login">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me Checkbox -->
+<div class="flex items-center justify-between pt-1">
+<label class="flex items-center gap-2 cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded bg-surface-container-lowest accent-primary cursor-pointer" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Recordar sesión 30 días</span>
+</label>
+<span class="material-symbols-outlined text-outline text-base cursor-help" title="Sesión cifrada con rotación automática de refresh token">info</span>
+</div>
+<!-- Submit CTA Button -->
+<button class="w-full mt-2 py-3 px-5 rounded-xl bg-gradient-to-r from-primary-container via-inverse-primary to-primary text-on-primary font-title-md text-title-md font-semibold flex items-center justify-center gap-2 shadow-lg shadow-primary-container/20 hover:shadow-primary-container/40 transition-all cursor-pointer group" id="btn-login-submit" type="submit">
+<span class="hidden material-symbols-outlined animate-spin text-lg" id="login-spinner">progress_activity</span>
+<span id="login-btn-text">Iniciar Sesión en Suite</span>
+<span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</form>
+<!-- VIEW 2: REGISTER / ONBOARDING FORM (Hidden by default) -->
+<form class="hidden space-y-3.5" id="form-register" onsubmit="handleAuthSubmit(event, 'register')">
+<!-- Full Name -->
+<div class="space-y-1">
+<label class="font-label-md text-label-md font-medium text-on-surface">Nombre Completo</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-lg">person</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-all" id="reg-name" placeholder="Marcus Vance" required="" type="text"/>
+</div>
+</div>
+<!-- Corporate Email -->
+<div class="space-y-1">
+<label class="font-label-md text-label-md font-medium text-on-surface">Email de Trabajo</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-lg">domain</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-all" id="reg-email" placeholder="marcus@empresa.com" required="" type="email"/>
+</div>
+</div>
+<!-- Company & Role Dual Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+<div class="space-y-1">
+<label class="font-label-md text-label-md font-medium text-on-surface">Empresa</label>
+<input class="w-full px-3 py-2 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-all" id="reg-company" placeholder="Global Media Ltd." required="" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-md text-label-md font-medium text-on-surface">Rol de Equipo</label>
+<select class="w-full px-3 py-2 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none cursor-pointer">
+<option value="marketing_director">Marketing Director</option>
+<option value="demand_gen">Demand Gen Lead</option>
+<option value="content_lead">Content Strategist</option>
+<option value="growth_lead">Head of Growth</option>
+</select>
+</div>
+</div>
+<!-- Password with Live Strength Meter -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md font-medium text-on-surface">Contraseña Maestra</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-lg">key</span>
+<input class="w-full pl-10 pr-10 py-2 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-all" id="reg-password" oninput="evaluatePasswordStrength(this.value)" placeholder="Mínimo 10 caracteres" required="" type="password"/>
+<button class="absolute right-3 text-on-surface-variant hover:text-on-surface cursor-pointer p-1" onclick="togglePasswordVisibility('reg-password', 'eye-icon-reg')" type="button">
+<span class="material-symbols-outlined text-lg" id="eye-icon-reg">visibility</span>
+</button>
+</div>
+<!-- 4-Level Strength Meter Indicator -->
+<div class="space-y-1 pt-1">
+<div class="grid grid-cols-4 gap-1.5 h-1.5">
+<div class="rounded-full bg-surface-container-highest transition-colors duration-300" id="str-1"></div>
+<div class="rounded-full bg-surface-container-highest transition-colors duration-300" id="str-2"></div>
+<div class="rounded-full bg-surface-container-highest transition-colors duration-300" id="str-3"></div>
+<div class="rounded-full bg-surface-container-highest transition-colors duration-300" id="str-4"></div>
+</div>
+<div class="flex justify-between items-center text-[11px] font-code-mono">
+<span class="text-on-surface-variant">Seguridad:</span>
+<span class="text-outline font-semibold" id="strength-label">Esperando entrada...</span>
+</div>
+</div>
+</div>
+<!-- Register Submit CTA -->
+<button class="w-full mt-2 py-3 px-5 rounded-xl bg-gradient-to-r from-tertiary-container via-primary-container to-primary text-on-primary font-title-md text-title-md font-semibold flex items-center justify-center gap-2 shadow-lg shadow-tertiary-container/20 hover:shadow-tertiary-container/40 transition-all cursor-pointer group" id="btn-register-submit" type="submit">
+<span class="hidden material-symbols-outlined animate-spin text-lg" id="register-spinner">progress_activity</span>
+<span id="register-btn-text">Comenzar Evaluación de 14 Días</span>
+<span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">rocket_launch</span>
+</button>
+</form>
+<!-- Card Footer & System Operational Status -->
+<div class="pt-3 flex flex-col items-center space-y-2 text-center">
+<div class="flex items-center gap-2 font-code-mono text-label-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span>All systems operational (99.98% uptime)</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">
+            Al continuar aceptas los <a class="text-primary hover:underline" href="#">Términos de Servicio</a> y la <a class="text-primary hover:underline" href="#">Política de Privacidad</a> de NoonDalton.
+          </p>
+</div>
+</div>
+</div>
+</div>
+<!-- PASSWORD RECOVERY MODAL / DRAWER (State-driven) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-surface-container-lowest/80 backdrop-blur-xl" id="forgot-modal">
+<div class="w-full max-w-md rounded-2xl bg-surface-container p-6 sm:p-8 shadow-2xl relative space-y-5 animate-in fade-in zoom-in-95 duration-200">
+<!-- Close Button -->
+<button class="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface p-1 rounded-lg bg-surface-container-high cursor-pointer" onclick="closeForgotPasswordModal()">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">lock_reset</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Recuperar Acceso</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Enlace temporal de un solo uso con cifrado HSM</p>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md font-medium text-on-surface">Ingresa tu Email Corporativo Registrado</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-lg">mail</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none" id="forgot-email" placeholder="colega@noondalton.com" type="email" value="admin@noondalton.com"/>
+</div>
+</div>
+<div class="hidden p-3 rounded-lg bg-emerald-500/10 text-emerald-300 font-body-sm text-body-sm flex items-center gap-2" id="forgot-feedback">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span>¡Enlace de restablecimiento despachado a tu inbox!</span>
+</div>
+<div class="flex items-center gap-3 pt-2">
+<button class="flex-1 py-2.5 px-4 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-title-sm text-title-sm font-semibold transition-colors cursor-pointer" onclick="closeForgotPasswordModal()" type="button">
+          Cancelar
+        </button>
+<button class="flex-1 py-2.5 px-4 rounded-xl bg-primary-container hover:bg-inverse-primary text-on-primary font-title-sm text-title-sm font-semibold transition-all shadow-md cursor-pointer flex items-center justify-center gap-1.5" onclick="submitPasswordRecovery()" type="button">
+<span>Enviar Enlace</span>
+<span class="material-symbols-outlined text-base">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Toast Notification System -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 px-4 py-3 rounded-xl bg-surface-container-highest text-on-surface shadow-2xl" id="app-toast">
+<span class="material-symbols-outlined text-primary" id="toast-icon">verified</span>
+<div>
+<h5 class="font-title-sm text-title-sm font-semibold" id="toast-title">Autenticado</h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant" id="toast-msg">Accediendo al panel ejecutivo...</p>
+</div>
+</div>
+</div>
+<script>
+  // Tab Switcher (Login vs Register)
+  function switchTab(target) {
+    const tabLogin = document.getElementById('tab-login');
+    const tabRegister = document.getElementById('tab-register');
+    const formLogin = document.getElementById('form-login');
+    const formRegister = document.getElementById('form-register');
+
+    if (target === 'login') {
+      tabLogin.className = 'flex-1 py-2 rounded-lg font-title-sm text-title-sm font-semibold transition-all duration-200 text-center text-on-primary bg-primary-container shadow-md';
+      tabRegister.className = 'flex-1 py-2 rounded-lg font-title-sm text-title-sm font-semibold transition-all duration-200 text-center text-on-surface-variant hover:text-on-surface flex items-center justify-center gap-1.5';
+      formLogin.classList.remove('hidden');
+      formRegister.classList.add('hidden');
+    } else {
+      tabRegister.className = 'flex-1 py-2 rounded-lg font-title-sm text-title-sm font-semibold transition-all duration-200 text-center text-on-primary bg-primary-container shadow-md flex items-center justify-center gap-1.5';
+      tabLogin.className = 'flex-1 py-2 rounded-lg font-title-sm text-title-sm font-semibold transition-all duration-200 text-center text-on-surface-variant hover:text-on-surface';
+      formRegister.classList.remove('hidden');
+      formLogin.classList.add('hidden');
+    }
+  }
+
+  // Pre-fill Admin Sandbox Credentials
+  function fillDemoCredentials() {
+    switchTab('login');
+    const emailInput = document.getElementById('login-email');
+    const passInput = document.getElementById('login-password');
+    emailInput.value = 'admin@noondalton.com';
+    passInput.value = 'MarketGen#Enterprise2025!';
+    validateEmailInput(emailInput);
+    triggerToast('Credenciales Demo Cargadas', 'Perfil de administrador corporativo listo para autenticación rápida.');
+  }
+
+  // Password Visibility Toggle
+  function togglePasswordVisibility(inputId, iconId) {
+    const input = document.getElementById(inputId);
+    const icon = document.getElementById(iconId);
+    if (input.type === 'password') {
+      input.type = 'text';
+      icon.textContent = 'visibility_off';
+    } else {
+      input.type = 'password';
+      icon.textContent = 'visibility';
+    }
+  }
+
+  // Email validation check
+  function validateEmailInput(element) {
+    const indicator = document.getElementById('email-valid-indicator');
+    if (element.value.includes('@') && element.value.includes('.')) {
+      indicator.classList.remove('hidden');
+      indicator.classList.add('flex');
+    } else {
+      indicator.classList.add('hidden');
+      indicator.classList.remove('flex');
+    }
+  }
+
+  // Password Strength Meter
+  function evaluatePasswordStrength(pass) {
+    const s1 = document.getElementById('str-1');
+    const s2 = document.getElementById('str-2');
+    const s3 = document.getElementById('str-3');
+    const s4 = document.getElementById('str-4');
+    const label = document.getElementById('strength-label');
+
+    // Reset colors
+    const reset = 'rounded-full bg-surface-container-highest transition-colors duration-300';
+    s1.className = reset;
+    s2.className = reset;
+    s3.className = reset;
+    s4.className = reset;
+
+    if (!pass) {
+      label.textContent = 'Esperando entrada...';
+      label.className = 'text-outline font-semibold';
+      return;
+    }
+
+    let score = 0;
+    if (pass.length >= 6) score++;
+    if (pass.length >= 10) score++;
+    if (/[A-Z]/.test(pass) && /[0-9]/.test(pass)) score++;
+    if (/[^A-Za-z0-9]/.test(pass)) score++;
+
+    if (score === 1) {
+      s1.className = 'rounded-full bg-rose-500 transition-colors duration-300';
+      label.textContent = 'Nivel 1: Débil';
+      label.className = 'text-rose-400 font-semibold';
+    } else if (score === 2) {
+      s1.className = 'rounded-full bg-amber-500 transition-colors duration-300';
+      s2.className = 'rounded-full bg-amber-500 transition-colors duration-300';
+      label.textContent = 'Nivel 2: Media';
+      label.className = 'text-amber-400 font-semibold';
+    } else if (score === 3) {
+      s1.className = 'rounded-full bg-blue-400 transition-colors duration-300';
+      s2.className = 'rounded-full bg-blue-400 transition-colors duration-300';
+      s3.className = 'rounded-full bg-blue-400 transition-colors duration-300';
+      label.textContent = 'Nivel 3: Segura';
+      label.className = 'text-blue-300 font-semibold';
+    } else if (score >= 4) {
+      s1.className = 'rounded-full bg-emerald-400 transition-colors duration-300';
+      s2.className = 'rounded-full bg-emerald-400 transition-colors duration-300';
+      s3.className = 'rounded-full bg-emerald-400 transition-colors duration-300';
+      s4.className = 'rounded-full bg-emerald-400 transition-colors duration-300';
+      label.textContent = 'Nivel 4: Blindada (Enterprise)';
+      label.className = 'text-emerald-300 font-semibold';
+    }
+  }
+
+  // Handle Submit with micro-spinner animation
+  function handleAuthSubmit(event, type) {
+    event.preventDefault();
+    if (type === 'login') {
+      const spinner = document.getElementById('login-spinner');
+      const text = document.getElementById('login-btn-text');
+      spinner.classList.remove('hidden');
+      text.textContent = 'Verificando con HSM...';
+
+      setTimeout(() => {
+        spinner.classList.add('hidden');
+        text.textContent = '¡Acceso Concedido!';
+        triggerToast('Sesión Autorizada', 'Redirigiendo a NoonDalton Control Center...');
+        setTimeout(() => {
+          text.textContent = 'Iniciar Sesión en Suite';
+        }, 3000);
+      }, 1200);
+    } else {
+      const spinner = document.getElementById('register-spinner');
+      const text = document.getElementById('register-btn-text');
+      spinner.classList.remove('hidden');
+      text.textContent = 'Aprovisionando entorno Pro...';
+
+      setTimeout(() => {
+        spinner.classList.add('hidden');
+        text.textContent = '¡Cuenta Aprovisionada!';
+        triggerToast('Sandbox Preparado', 'Se ha enviado un correo de bienvenida a tu buzón institucional.');
+        setTimeout(() => {
+          text.textContent = 'Comenzar Evaluación de 14 Días';
+        }, 3000);
+      }, 1400);
+    }
+  }
+
+  // Simulate SSO OAuth
+  function simulateOAuth(provider) {
+    triggerToast(`OAuth 2.0: ${provider}`, `Handshake de federación corporativa iniciado con ${provider}.`);
+  }
+
+  // Modal Forgot Password Handlers
+  function openForgotPasswordModal() {
+    document.getElementById('forgot-modal').classList.remove('hidden');
+  }
+
+  function closeForgotPasswordModal() {
+    document.getElementById('forgot-modal').classList.add('hidden');
+    document.getElementById('forgot-feedback').classList.add('hidden');
+  }
+
+  function submitPasswordRecovery() {
+    const feedback = document.getElementById('forgot-feedback');
+    feedback.classList.remove('hidden');
+    setTimeout(() => {
+      closeForgotPasswordModal();
+      triggerToast('Enlace Despachado', 'Revisa tu bandeja de entrada corporativa para restablecer tu clave.');
+    }, 1800);
+  }
+
+  // Language Dropdown Selector
+  const langBtn = document.getElementById('lang-toggle-btn');
+  const langMenu = document.getElementById('lang-menu');
+  const langChevron = document.getElementById('lang-chevron');
+
+  langBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isHidden = langMenu.classList.contains('hidden');
+    if (isHidden) {
+      langMenu.classList.remove('hidden');
+      langChevron.style.transform = 'rotate(180deg)';
+    } else {
+      langMenu.classList.add('hidden');
+      langChevron.style.transform = 'rotate(0deg)';
+    }
+  });
+
+  document.addEventListener('click', () => {
+    if (!langMenu.classList.contains('hidden')) {
+      langMenu.classList.add('hidden');
+      langChevron.style.transform = 'rotate(0deg)';
+    }
+  });
+
+  function selectLanguage(flag, name) {
+    document.getElementById('active-lang-flag').textContent = flag;
+    document.getElementById('active-lang-name').textContent = name;
+    langMenu.classList.add('hidden');
+    langChevron.style.transform = 'rotate(0deg)';
+    triggerToast('Idioma Actualizado', `La interfaz se configuró a ${name} (${flag}).`);
+  }
+
+  // Simple Notification Toast
+  function triggerToast(title, msg) {
+    const toast = document.getElementById('app-toast');
+    document.getElementById('toast-title').textContent = title;
+    document.getElementById('toast-msg').textContent = msg;
+
+    toast.classList.remove('translate-y-24', 'opacity-0');
+    toast.classList.add('translate-y-0', 'opacity-100');
+
+    setTimeout(() => {
+      toast.classList.remove('translate-y-0', 'opacity-100');
+      toast.classList.add('translate-y-24', 'opacity-0');
+    }, 3500);
+  }
+
+  // Initialize checks
+  window.addEventListener('DOMContentLoaded', () => {
+    validateEmailInput(document.getElementById('login-email'));
+  });
+</script></main></body></html>
