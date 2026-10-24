@@ -1,0 +1,73 @@
+@startuml
+skinparam shadowing false
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 12
+skinparam ArrowColor #181818
+skinparam activity {
+  BackgroundColor #FFFFFF
+  BorderColor #555555
+  DiamondBackgroundColor #FFFFFF
+  DiamondBorderColor #555555
+}
+skinparam note {
+  BackgroundColor #FFFFE0
+  BorderColor #888888
+}
+skinparam swimlane {
+  BorderColor #181818
+  BorderThickness 1
+}
+title Gestionar Ciclo de Vida de Propuesta (RF-VTA-05)\nDiagrama de Actividad - Lista única de 6 estados
+|Usuario|
+|Sistema / Backend|
+|CRM (HubSpot / Salesforce)|
+|Usuario|
+start
+:Selecciona una propuesta existente;
+|Sistema / Backend|
+:Carga la propuesta con su estado actual;
+repeat
+  :Muestra solo las transiciones válidas;
+  |Usuario|
+  :Selecciona la acción;
+  if (¿Marcar como Enviada?) then (sí)
+    |Sistema / Backend|
+    :Valida que la propuesta esté completa;
+    if (¿Validación correcta?) then (no)
+      :Muestra los errores de validación;
+    else (sí)
+      :Cambia el estado a Enviada\ny registra la fecha de envío;
+      |CRM (HubSpot / Salesforce)|
+      :Crea o actualiza contacto y negocio\ncon su monto (un solo sentido);
+      note right: Detalle en el diagrama 10
+      |Sistema / Backend|
+      :Registra el resultado de la sincronización\nen la propuesta;
+    endif
+  elseif (¿Cambiar a otro estado?) then (sí)
+    |Usuario|
+    :Selecciona el nuevo estado\n(Vista, En negociación, Firmada o Rechazada);
+    |Sistema / Backend|
+    if (¿Transición válida?) then (no)
+      :Muestra el error y las opciones válidas;
+    else (sí)
+      :Actualiza el estado;
+      :Guarda el cambio en el historial de estados\ny en auditoría;
+      note right: El cambio de estado no modifica\nel score de la oportunidad (D-02)
+      if (¿Nuevo estado Firmada o Rechazada?) then (sí)
+        :Registra la fecha de cierre;
+        |CRM (HubSpot / Salesforce)|
+        :Actualiza la etapa del negocio\n(un solo sentido);
+      else (no)
+      endif
+    endif
+  else (editar contenido)
+    |Usuario|
+    :Modifica el contenido de la propuesta;
+    |Sistema / Backend|
+    :Guarda una nueva versión\n(fecha, autor y contenido);
+    note right: El estado no cambia
+  endif
+  |Usuario|
+repeat while (¿Continuar gestionando la propuesta?) is (sí) not (no)
+stop
+@enduml

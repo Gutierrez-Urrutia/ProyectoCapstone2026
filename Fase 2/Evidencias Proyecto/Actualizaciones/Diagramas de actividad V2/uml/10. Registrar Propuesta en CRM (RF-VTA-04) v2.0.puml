@@ -1,0 +1,60 @@
+@startuml
+skinparam shadowing false
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 12
+skinparam ArrowColor #181818
+skinparam activity {
+  BackgroundColor #FFFFFF
+  BorderColor #555555
+  DiamondBackgroundColor #FFFFFF
+  DiamondBorderColor #555555
+}
+skinparam note {
+  BackgroundColor #FFFFE0
+  BorderColor #888888
+}
+skinparam swimlane {
+  BorderColor #181818
+  BorderThickness 1
+}
+title Registrar Propuesta en CRM (RF-VTA-04)\nDiagrama de Actividad - Sincronización en un solo sentido
+|Usuario|
+|Sistema / Backend|
+|CRM (HubSpot / Salesforce)|
+|Usuario|
+start
+:Marca la propuesta como Enviada;
+|Sistema / Backend|
+:Verifica la conexión con el CRM configurado;
+if (¿Conexión activa?) then (no)
+  :Registra el error en la propuesta;
+  |Usuario|
+  :Recibe el error del CRM y puede reintentar;
+  stop
+else (sí)
+endif
+|CRM (HubSpot / Salesforce)|
+:Busca el contacto y el negocio\nya vinculados a la propuesta;
+if (¿Ya existe el registro?) then (sí)
+  :Actualiza el registro existente\nsin duplicarlo;
+else (no)
+  :Crea el contacto y el negocio con su monto;
+endif
+|Sistema / Backend|
+if (¿Sincronización exitosa?) then (sí)
+  :Guarda el identificador del registro del CRM\ny el estado de la sincronización;
+else (no)
+  :Registra el error en la propuesta;
+  |Usuario|
+  :Recibe el error del CRM y puede reintentar;
+  stop
+endif
+|Usuario|
+:Recibe la confirmación del registro en el CRM;
+note right
+  Solo sentido propuesta hacia CRM (D-03).
+  Probado con al menos una cuenta
+  de desarrollo real (entregable 6.5).
+end note
+stop
+@enduml

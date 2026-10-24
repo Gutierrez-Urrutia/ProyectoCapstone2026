@@ -1,0 +1,62 @@
+@startuml
+skinparam shadowing false
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 12
+skinparam ArrowColor #181818
+skinparam activity {
+  BackgroundColor #FFFFFF
+  BorderColor #555555
+  DiamondBackgroundColor #FFFFFF
+  DiamondBorderColor #555555
+}
+skinparam note {
+  BackgroundColor #FFFFE0
+  BorderColor #888888
+}
+skinparam swimlane {
+  BorderColor #181818
+  BorderThickness 1
+}
+title Revisar Correos de Prospección en Review Queue (RF-VTA-16)\nDiagrama de Actividad - Agente 3 (Email Composer) y revisión humana
+|Usuario|
+|Sistema / Backend|
+|Agente 3 - Email Composer|
+|Usuario|
+start
+:Selecciona un lead;
+|Agente 3 - Email Composer|
+:Genera un correo personalizado con el cargo\ny la empresa de la vacante;
+|Sistema / Backend|
+:Guarda el correo en estado Pendiente\ny lo envía a la Review Queue;
+|Usuario|
+repeat
+  :Revisa el correo en la Review Queue;
+  if (¿Decisión: editar?) then (sí)
+    :Modifica el asunto o el cuerpo del correo;
+    |Sistema / Backend|
+    :Guarda los cambios y mantiene el correo Pendiente;
+  else (no)
+    if (¿Decisión: aprobar?) then (sí)
+    |Sistema / Backend|
+    :Cambia el estado a Aprobado;
+    :Guarda la decisión en el historial del correo;
+  else (rechazar)
+    |Sistema / Backend|
+    :Cambia el estado a Rechazado;
+    :Guarda la decisión en el historial del correo;
+  endif
+  endif
+  |Usuario|
+repeat while (¿El correo sigue Pendiente?) is (sí) not (no)
+if (¿El correo fue aprobado?) then (sí)
+  :Marca el correo como enviado o lo exporta;
+  |Sistema / Backend|
+  :Registra el estado final (Marcado como enviado o Exportado);
+else (no)
+endif
+note right
+  No hay envío automático (D-08).
+  Nada se da por enviado sin aprobación.
+end note
+stop
+@enduml

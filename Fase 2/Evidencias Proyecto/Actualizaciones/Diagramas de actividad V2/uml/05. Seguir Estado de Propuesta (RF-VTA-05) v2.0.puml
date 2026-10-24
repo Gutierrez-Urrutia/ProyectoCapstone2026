@@ -1,0 +1,54 @@
+@startuml
+skinparam shadowing false
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 12
+skinparam ArrowColor #181818
+skinparam activity {
+  BackgroundColor #FFFFFF
+  BorderColor #555555
+  DiamondBackgroundColor #FFFFFF
+  DiamondBorderColor #555555
+}
+skinparam note {
+  BackgroundColor #FFFFE0
+  BorderColor #888888
+}
+skinparam swimlane {
+  BorderColor #181818
+  BorderThickness 1
+}
+title Seguir Estado de Propuesta (RF-VTA-05)\nDiagrama de Actividad - Seguimiento y estados
+|Usuario|
+|Sistema / Backend|
+|Usuario|
+start
+:Abre el módulo de seguimiento de propuestas;
+|Sistema / Backend|
+:Carga las propuestas del usuario;
+:Muestra la lista con estado, cliente y valor\n(6 estados: Borrador, Enviada, Vista,\nEn negociación, Firmada y Rechazada);
+repeat
+  |Usuario|
+  :Filtra por estado y selecciona una propuesta;
+  |Sistema / Backend|
+  :Muestra el detalle (cliente, estado, valor y fechas)\ny el historial de cambios de estado;
+  |Usuario|
+  if (¿Marcar como Vista?) then (sí)
+    |Sistema / Backend|
+    :Valida la transición y cambia el estado a Vista;
+    :Registra el cambio en el historial y en auditoría;
+  else (no)
+    if (¿Cambiar otro estado?) then (sí)
+    |Sistema / Backend|
+    :Se continúa en el diagrama 2\n(Gestionar ciclo de vida);
+  else (no)
+    if (¿Consultar versiones?) then (sí)
+    |Sistema / Backend|
+    :Se continúa en el diagrama 9\n(Historial de versiones);
+  else (solo consultar)
+  endif
+  endif
+  endif
+  |Usuario|
+repeat while (¿Consultar otra propuesta?) is (sí) not (no)
+stop
+@enduml

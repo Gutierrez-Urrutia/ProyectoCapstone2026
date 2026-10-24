@@ -1,0 +1,68 @@
+@startuml
+skinparam shadowing false
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 12
+skinparam ArrowColor #181818
+skinparam activity {
+  BackgroundColor #FFFFFF
+  BorderColor #555555
+  DiamondBackgroundColor #FFFFFF
+  DiamondBorderColor #555555
+}
+skinparam note {
+  BackgroundColor #FFFFE0
+  BorderColor #888888
+}
+skinparam swimlane {
+  BorderColor #181818
+  BorderThickness 1
+}
+title Generar Propuesta Comercial (RF-VTA-01)\nDiagrama de Actividad - Flujo guiado de 3 pasos
+|Usuario|
+|Manager / Admin|
+|Sistema / Backend|
+|Servicio de IA (DeepSeek + RAG)|
+|Usuario|
+start
+:Inicia el flujo guiado de 3 pasos;
+:Paso 1 - Selecciona el cliente\ne ingresa los datos generales;
+|Sistema / Backend|
+:Carga el perfil del cliente\n(industria, tamaño e historial);
+|Usuario|
+:Paso 2 - Selecciona servicios del catálogo;
+|Sistema / Backend|
+:Precarga el precio de cada servicio;
+|Usuario|
+:Ajusta precios y cantidades en la propuesta;
+if (¿Aplica descuento?) then (sí)
+  |Manager / Admin|
+  :Aprueba o rechaza el descuento;
+else (no)
+endif
+|Usuario|
+:Paso 3 - Solicita generar la propuesta;
+|Sistema / Backend|
+:Crea la tarea asíncrona y devuelve el control\nal usuario (RNF-VTA-06);
+|Servicio de IA (DeepSeek + RAG)|
+:Recupera el contexto histórico de propuestas BPO\nsegún cliente y servicio (RAG dinámico);
+:Genera el borrador de la propuesta;
+if (¿El servicio de IA respondió?) then (no)
+  |Sistema / Backend|
+  :Informa la falla al usuario sin detener la aplicación\ny registra el error (RNF-VTA-05);
+  stop
+else (sí)
+endif
+|Sistema / Backend|
+:Guarda la propuesta en estado Borrador;
+:Crea la versión inicial y registra\nla acción en auditoría;
+|Usuario|
+repeat
+  :Revisa y edita el borrador;
+repeat while (¿La propuesta requiere más cambios?) is (sí) not (no)
+:Guarda la propuesta;
+|Sistema / Backend|
+:Registra una nueva versión y la auditoría;
+|Usuario|
+:Recibe la confirmación;
+stop
+@enduml

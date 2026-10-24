@@ -1,0 +1,63 @@
+@startuml
+skinparam shadowing false
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 12
+skinparam ArrowColor #181818
+skinparam activity {
+  BackgroundColor #FFFFFF
+  BorderColor #555555
+  DiamondBackgroundColor #FFFFFF
+  DiamondBorderColor #555555
+}
+skinparam note {
+  BackgroundColor #FFFFE0
+  BorderColor #888888
+}
+skinparam swimlane {
+  BorderColor #181818
+  BorderThickness 1
+}
+title Configurar y Ejecutar Pipeline de Prospección (RF-VTA-13 y 14)\nDiagrama de Actividad - Configuración y Agente 1 (Job Scout)
+|Usuario|
+|Sistema / Backend|
+|Agente 1 - Job Scout|
+|Usuario|
+start
+:Guarda las palabras clave y las fuentes del pipeline;
+:Prueba cada fuente (opcional);
+|Sistema / Backend|
+:Valida y guarda la configuración;
+note right: Las credenciales no aparecen\nen ninguna respuesta de la API
+|Usuario|
+:Lanza una ejecución del pipeline;
+|Sistema / Backend|
+if (¿Hay otra ejecución en curso\ncon la misma configuración?) then (sí)
+  :Rechaza la nueva ejecución e informa al usuario;
+  stop
+else (no)
+endif
+:Crea la ejecución y la tarea asíncrona;
+|Agente 1 - Job Scout|
+repeat
+  :Consulta las vacantes de la fuente;
+  if (¿La fuente respondió?) then (no)
+    :Registra la falla de la fuente y continúa;
+  else (sí)
+    :Calcula el puntaje de relevancia de cada vacante;
+    if (¿Bajo el umbral de relevancia?) then (sí)
+      :Descarta la vacante;
+    else (no)
+      if (¿Vacante repetida?) then (sí)
+        :No crea un lead duplicado;
+      else (no)
+        :Crea el lead (cargo, empresa, descripción,\nenlace y puntaje);
+      endif
+    endif
+  endif
+repeat while (¿Quedan fuentes por consultar?) is (sí) not (no)
+|Sistema / Backend|
+:Cierra la ejecución con su estado y resultado;
+|Usuario|
+:Consulta el estado de la ejecución y los leads obtenidos;
+stop
+@enduml

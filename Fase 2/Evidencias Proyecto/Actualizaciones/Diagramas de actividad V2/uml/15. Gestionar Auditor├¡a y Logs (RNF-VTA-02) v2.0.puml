@@ -1,0 +1,47 @@
+@startuml
+skinparam shadowing false
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 12
+skinparam ArrowColor #181818
+skinparam activity {
+  BackgroundColor #FFFFFF
+  BorderColor #555555
+  DiamondBackgroundColor #FFFFFF
+  DiamondBorderColor #555555
+}
+skinparam note {
+  BackgroundColor #FFFFE0
+  BorderColor #888888
+}
+skinparam swimlane {
+  BorderColor #181818
+  BorderThickness 1
+}
+title Gestionar Auditoría y Logs (RNF-VTA-02)\nDiagrama de Actividad - Registro y consulta de auditoría
+|Usuario|
+|Backend / Registro de Auditoría|
+|Administrador|
+|Usuario|
+start
+:Realiza una acción sobre una propuesta\n(crear, generar, editar, cambiar de estado,\nversionar, enviar al CRM o eliminar);
+|Backend / Registro de Auditoría|
+:Captura usuario, acción, entidad afectada,\nfecha e IP;
+if (¿Datos del evento válidos?) then (no)
+  :Registra el fallo del registro de auditoría;
+  stop
+else (sí)
+endif
+:Guarda el evento en el registro de auditoría;
+|Administrador|
+:Accede al registro de auditoría;
+:Filtra por fecha, usuario o acción;
+|Backend / Registro de Auditoría|
+:Ejecuta la consulta y devuelve los eventos;
+|Administrador|
+:Consulta el detalle de cada evento;
+note right
+  Integridad criptográfica, alertas y política de retención
+  no forman parte de esta etapa.
+end note
+stop
+@enduml

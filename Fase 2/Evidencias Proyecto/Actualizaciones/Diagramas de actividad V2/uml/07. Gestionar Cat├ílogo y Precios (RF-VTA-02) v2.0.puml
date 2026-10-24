@@ -1,0 +1,66 @@
+@startuml
+skinparam shadowing false
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 12
+skinparam ArrowColor #181818
+skinparam activity {
+  BackgroundColor #FFFFFF
+  BorderColor #555555
+  DiamondBackgroundColor #FFFFFF
+  DiamondBorderColor #555555
+}
+skinparam note {
+  BackgroundColor #FFFFE0
+  BorderColor #888888
+}
+skinparam swimlane {
+  BorderColor #181818
+  BorderThickness 1
+}
+title Gestionar Catálogo y Precios (RF-VTA-02)\nDiagrama de Actividad - Administración de servicios
+|Manager / Admin|
+|Sistema / Backend|
+|Manager / Admin|
+start
+:Abre el módulo Catálogo y Precios;
+|Sistema / Backend|
+:Verifica el rol del usuario;
+if (¿Rol manager o admin?) then (no)
+  :Muestra el catálogo en modo solo lectura;
+  stop
+else (sí)
+endif
+:Muestra la lista de servicios;
+repeat
+  |Manager / Admin|
+  :Selecciona la acción;
+  if (¿Crear servicio?) then (sí)
+    :Ingresa nombre, descripción, unidad,\nprecio, moneda y condiciones;
+    |Sistema / Backend|
+    if (¿Datos válidos?) then (no)
+      :Muestra los errores y permite corregir;
+    else (sí)
+      :Crea el servicio activo;
+      :Registra la acción en auditoría;
+    endif
+  else (no)
+    if (¿Editar servicio o precio?) then (sí)
+    |Manager / Admin|
+    :Modifica los campos del servicio;
+    |Sistema / Backend|
+    :Actualiza el servicio;
+    :Registra la acción en auditoría;
+    note right: Las propuestas ya emitidas\nno cambian
+  else (desactivar servicio)
+    |Manager / Admin|
+    :Confirma la desactivación;
+    |Sistema / Backend|
+    :Marca el servicio como inactivo;
+    :Deja de ofrecerlo en nuevas propuestas;
+    note right: Las propuestas existentes\nconservan el servicio
+  endif
+  endif
+  |Manager / Admin|
+repeat while (¿Realizar otra acción en el catálogo?) is (sí) not (no)
+stop
+@enduml

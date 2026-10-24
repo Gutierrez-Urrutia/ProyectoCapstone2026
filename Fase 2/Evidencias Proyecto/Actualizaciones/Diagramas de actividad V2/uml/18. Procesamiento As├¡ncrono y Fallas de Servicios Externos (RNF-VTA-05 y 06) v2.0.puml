@@ -1,0 +1,61 @@
+@startuml
+skinparam shadowing false
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 12
+skinparam ArrowColor #181818
+skinparam activity {
+  BackgroundColor #FFFFFF
+  BorderColor #555555
+  DiamondBackgroundColor #FFFFFF
+  DiamondBorderColor #555555
+}
+skinparam note {
+  BackgroundColor #FFFFE0
+  BorderColor #888888
+}
+skinparam swimlane {
+  BorderColor #181818
+  BorderThickness 1
+}
+title Procesamiento Asíncrono y Fallas de Servicios Externos (RNF-VTA-05 y 06)\nDiagrama de Actividad - Tareas pesadas sin bloquear al usuario
+|Usuario|
+|Sistema / Backend|
+|Worker (Celery / Redis)|
+|Servicio externo (IA o CRM)|
+|Usuario|
+start
+:Solicita una operación pesada\n(generar propuesta,\nejecución del pipeline o sincronización con el CRM);
+|Sistema / Backend|
+:Crea la tarea asíncrona en estado Pendiente;
+:Devuelve el control al usuario;
+if (¿El servicio de colas está disponible?) then (sí)
+  |Worker (Celery / Redis)|
+  :Toma la tarea y la procesa en segundo plano;
+else (no)
+  |Sistema / Backend|
+  :Completa la operación directamente;
+  note right: La operación se completa igualmente\naunque la cola no esté disponible
+  |Worker (Celery / Redis)|
+endif
+|Servicio externo (IA o CRM)|
+:Recibe la solicitud;
+if (¿El servicio respondió?) then (no)
+  |Sistema / Backend|
+  :Registra el error en la tarea o en la propuesta;
+  :Informa al usuario sin detener la aplicación;
+  |Usuario|
+  :Consulta el error y puede reintentar;
+  stop
+else (sí)
+endif
+|Sistema / Backend|
+:Actualiza el progreso y guarda el resultado;
+:Mide y registra el tiempo de generación;
+|Usuario|
+:Consulta el avance y obtiene el resultado;
+note right
+  El proceso worker permanente en producción
+  queda fuera de esta etapa.
+end note
+stop
+@enduml

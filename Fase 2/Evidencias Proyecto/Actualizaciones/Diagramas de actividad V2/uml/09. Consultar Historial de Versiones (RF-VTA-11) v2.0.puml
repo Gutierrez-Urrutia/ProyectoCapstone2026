@@ -1,0 +1,41 @@
+@startuml
+skinparam shadowing false
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 12
+skinparam ArrowColor #181818
+skinparam activity {
+  BackgroundColor #FFFFFF
+  BorderColor #555555
+  DiamondBackgroundColor #FFFFFF
+  DiamondBorderColor #555555
+}
+skinparam note {
+  BackgroundColor #FFFFE0
+  BorderColor #888888
+}
+skinparam swimlane {
+  BorderColor #181818
+  BorderThickness 1
+}
+title Consultar Historial de Versiones (RF-VTA-11)\nDiagrama de Actividad - Versiones de una propuesta
+|Usuario|
+|Sistema / Backend|
+|Usuario|
+start
+:Abre una propuesta y accede a su historial de versiones;
+|Sistema / Backend|
+:Carga las versiones guardadas\n(número, fecha y autor);
+:Muestra la lista de versiones;
+repeat
+  |Usuario|
+  :Selecciona una versión;
+  |Sistema / Backend|
+  :Muestra el contenido de la versión seleccionada;
+  |Usuario|
+repeat while (¿Consultar otra versión?) is (sí) not (no)
+stop
+note right
+  Cada guardado de la propuesta crea una versión
+  con fecha, autor y contenido.
+end note
+@enduml

@@ -1,0 +1,46 @@
+@startuml
+skinparam shadowing false
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 12
+skinparam ArrowColor #181818
+skinparam activity {
+  BackgroundColor #FFFFFF
+  BorderColor #555555
+  DiamondBackgroundColor #FFFFFF
+  DiamondBorderColor #555555
+}
+skinparam note {
+  BackgroundColor #FFFFE0
+  BorderColor #888888
+}
+skinparam swimlane {
+  BorderColor #181818
+  BorderThickness 1
+}
+title Sales Enablement (RF-VTA-08)\nDiagrama de Actividad - Borrador de contenido de venta
+|Usuario|
+|Sistema / Backend|
+|Servicio de IA (DeepSeek + RAG)|
+|Usuario|
+start
+:Selecciona un cliente o un servicio;
+:Elige el tipo de contenido\n(caso de éxito, comparativa o respuesta a una objeción);
+|Sistema / Backend|
+:Reúne la información cargada en el sistema\n(casos de éxito, catálogo y propuestas);
+if (¿Hay información suficiente?) then (no)
+  :Informa que no hay datos para generar el contenido\nsin inventar información;
+  stop
+else (sí)
+endif
+|Servicio de IA (DeepSeek + RAG)|
+:Genera el borrador usando solo\nla información cargada;
+|Sistema / Backend|
+:Registra la generación en el historial de IA\ny en auditoría;
+|Usuario|
+:Revisa y edita el borrador;
+stop
+note right
+  El borrador no presenta como reales
+  datos que no existan en el sistema.
+end note
+@enduml

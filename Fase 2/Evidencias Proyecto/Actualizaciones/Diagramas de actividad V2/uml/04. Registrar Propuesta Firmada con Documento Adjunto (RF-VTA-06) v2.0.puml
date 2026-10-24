@@ -1,0 +1,56 @@
+@startuml
+skinparam shadowing false
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 12
+skinparam ArrowColor #181818
+skinparam activity {
+  BackgroundColor #FFFFFF
+  BorderColor #555555
+  DiamondBackgroundColor #FFFFFF
+  DiamondBorderColor #555555
+}
+skinparam note {
+  BackgroundColor #FFFFE0
+  BorderColor #888888
+}
+skinparam swimlane {
+  BorderColor #181818
+  BorderThickness 1
+}
+title Registrar Propuesta Firmada con Documento Adjunto (RF-VTA-06)\nDiagrama de Actividad - Firma diferida (D-04)
+|Usuario|
+|Sistema / Backend|
+|CRM (HubSpot / Salesforce)|
+|Usuario|
+start
+:Selecciona la propuesta que el cliente firmó;
+|Sistema / Backend|
+:Verifica que la transición a Firmada sea válida;
+if (¿Transición válida?) then (no)
+  :Muestra el error y las opciones válidas;
+  stop
+else (sí)
+endif
+|Usuario|
+:Adjunta el documento firmado;
+|Sistema / Backend|
+if (¿Archivo válido?) then (no)
+  :Muestra el error de formato o tamaño;
+  stop
+else (sí)
+endif
+:Guarda el documento firmado como adjunto\nde la propuesta;
+:Cambia el estado a Firmada\ny registra la fecha de cierre;
+:Guarda el cambio en el historial de estados\ny en auditoría;
+|CRM (HubSpot / Salesforce)|
+:Actualiza la etapa del negocio (un solo sentido);
+|Usuario|
+:Recibe la confirmación de propuesta firmada;
+note right
+  La firma electrónica con proveedor externo
+  queda diferida (D-04, RF-VTA-06).
+  La propuesta se registra como Firmada
+  adjuntando el documento firmado.
+end note
+stop
+@enduml

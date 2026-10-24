@@ -1,0 +1,44 @@
+@startuml
+skinparam shadowing false
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 12
+skinparam ArrowColor #181818
+skinparam activity {
+  BackgroundColor #FFFFFF
+  BorderColor #555555
+  DiamondBackgroundColor #FFFFFF
+  DiamondBorderColor #555555
+}
+skinparam note {
+  BackgroundColor #FFFFE0
+  BorderColor #888888
+}
+skinparam swimlane {
+  BorderColor #181818
+  BorderThickness 1
+}
+title Exportar Propuesta en PDF o DOCX (RF-VTA-12)\nDiagrama de Actividad - Diseño corporativo
+|Usuario|
+|Sistema / Backend|
+|Usuario|
+start
+:Selecciona la propuesta a exportar;
+:Elige el formato (PDF o DOCX);
+|Sistema / Backend|
+:Obtiene el contenido completo de la propuesta;
+if (¿La empresa tiene logo y colores cargados?) then (sí)
+  :Aplica el diseño corporativo\n(logo y colores de la empresa);
+else (no)
+  :Aplica el diseño neutro de exportación;
+endif
+:Genera el documento;
+:Registra el documento generado y la auditoría;
+|Usuario|
+:Descarga el archivo;
+note right
+  La entrega al cliente la realiza el usuario.
+  El registro del envío se hace
+  con el estado Enviada (diagrama 2).
+end note
+stop
+@enduml

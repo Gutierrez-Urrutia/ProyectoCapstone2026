@@ -1,0 +1,63 @@
+@startuml
+skinparam shadowing false
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 12
+skinparam ArrowColor #181818
+skinparam activity {
+  BackgroundColor #FFFFFF
+  BorderColor #555555
+  DiamondBackgroundColor #FFFFFF
+  DiamondBorderColor #555555
+}
+skinparam note {
+  BackgroundColor #FFFFE0
+  BorderColor #888888
+}
+skinparam swimlane {
+  BorderColor #181818
+  BorderThickness 1
+}
+title Gestionar Plantillas de Propuestas (RF-VTA-07)\nDiagrama de Actividad - Variables y condiciones comerciales
+|Usuario|
+|Sistema / Backend|
+|Usuario|
+start
+:Abre el módulo Plantillas de propuestas;
+|Sistema / Backend|
+:Muestra las plantillas\n(filtrables por servicio o industria);
+repeat
+  |Usuario|
+  :Selecciona la acción;
+  if (¿Crear plantilla?) then (sí)
+    :Ingresa nombre, tipo y clasificación\n(servicio o industria);
+    :Redacta el contenido con variables\n(cliente, servicio, monto, fecha);
+    :Completa el bloque editable\nde condiciones comerciales;
+    |Sistema / Backend|
+    if (¿Variables y contenido válidos?) then (no)
+      :Muestra los errores y permite corregir;
+    else (sí)
+      :Guarda la plantilla;
+    endif
+  else (no)
+    if (¿Editar plantilla?) then (sí)
+    |Usuario|
+    :Modifica contenido, variables o condiciones;
+    |Sistema / Backend|
+    :Guarda los cambios;
+  else (no)
+    if (¿Eliminar plantilla?) then (sí)
+    |Usuario|
+    :Confirma la eliminación;
+    |Sistema / Backend|
+    :Elimina la plantilla;
+  else (usar en una propuesta)
+    |Sistema / Backend|
+    :Completa las variables con los datos\ndel cliente y de la propuesta;
+    :Incluye el bloque de condiciones comerciales\ncon el texto entregado por NoonDalton;
+  endif
+  endif
+  endif
+  |Usuario|
+repeat while (¿Realizar otra acción en plantillas?) is (sí) not (no)
+stop
+@enduml

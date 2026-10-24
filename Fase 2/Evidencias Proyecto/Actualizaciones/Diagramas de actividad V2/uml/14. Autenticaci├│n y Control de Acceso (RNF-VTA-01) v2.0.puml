@@ -1,0 +1,89 @@
+@startuml
+skinparam shadowing false
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 12
+skinparam ArrowColor #181818
+skinparam activity {
+  BackgroundColor #FFFFFF
+  BorderColor #555555
+  DiamondBackgroundColor #FFFFFF
+  DiamondBorderColor #555555
+}
+skinparam note {
+  BackgroundColor #FFFFE0
+  BorderColor #888888
+}
+skinparam swimlane {
+  BorderColor #181818
+  BorderThickness 1
+}
+title Autenticación y Control de Acceso (RNF-VTA-01)\nDiagrama de Actividad - Login, MFA, JWT y control de acceso por rol
+|Usuario|
+|Sistema de Autenticación|
+|Backend / Base de Datos|
+|Proveedores de Identidad (OAuth / SAML)|
+|Auditoría y Seguridad|
+|Usuario|
+start
+:Intenta acceder a la plataforma;
+|Sistema de Autenticación|
+:Presenta las opciones de autenticación;
+|Usuario|
+:Selecciona el método de ingreso;
+if (¿Método local (usuario y contraseña)?) then (sí)
+  :Ingresa correo y contraseña;
+  |Backend / Base de Datos|
+  :Valida las credenciales y el hash de contraseña;
+  if (¿Credenciales válidas?) then (no)
+    |Sistema de Autenticación|
+    :Muestra el error o el bloqueo de cuenta;
+    |Auditoría y Seguridad|
+    :Registra el intento fallido\n(fecha, IP y usuario);
+    stop
+  else (sí)
+  endif
+else (federado: OAuth o SAML)
+  |Proveedores de Identidad (OAuth / SAML)|
+  if (¿Método OAuth?) then (OAuth)
+    :Autentica en el proveedor externo\n(Google, Microsoft o LinkedIn);
+  else (Enterprise SAML)
+    :Valida la aserción SAML con el IdP corporativo;
+  endif
+  |Backend / Base de Datos|
+  :Asocia el usuario con el proveedor\ny asigna el rol según sus grupos;
+endif
+|Sistema de Autenticación|
+if (¿El usuario requiere MFA?) then (sí)
+  |Usuario|
+  :Ingresa el código OTP o el desafío biométrico;
+  |Sistema de Autenticación|
+  if (¿MFA correcto?) then (no)
+    :Notifica código inválido;
+    stop
+  else (sí)
+  endif
+else (no)
+endif
+:Genera los tokens JWT\n(acceso y renovación);
+|Backend / Base de Datos|
+:Registra la sesión activa y el rol del usuario\n(admin, manager o user);
+|Usuario|
+:Recibe los tokens y accede a la aplicación;
+:Solicita un recurso o endpoint protegido;
+|Backend / Base de Datos|
+:Valida la firma, la expiración y el rol del token;
+note right
+  Todos los endpoints exigen autenticación.
+  Cada usuario accede solo a sus propios datos.
+  Solo manager y admin editan precios
+  y aprueban descuentos.
+end note
+if (¿Autorizado?) then (sí)
+  :Procesa la solicitud y devuelve\nlos datos permitidos para su rol;
+else (no)
+  :Devuelve el error de acceso (401 o 403);
+endif
+|Auditoría y Seguridad|
+:Registra el evento en auditoría\n(fecha, IP, usuario y resultado);
+stop
+@enduml

@@ -1,0 +1,37 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam defaultFontName DejaVu Sans
+skinparam ArrowColor #181818
+skinparam usecase {
+  BackgroundColor #F1F1F1
+  BorderColor #181818
+}
+skinparam actor {
+  BackgroundColor #F1F1F1
+  BorderColor #181818
+}
+skinparam rectangle {
+  BorderColor #181818
+}
+
+actor "Usuario (todos)" as Us
+actor "Manager" as Ma
+actor "Administrador" as Ad
+
+Ma -|> Us
+Ad -|> Ma
+
+rectangle "Plataforma - Capa Transversal" {
+  usecase "Autenticarse (JWT)" as UC1
+  usecase "Procesar tareas en segundo plano\ny manejar fallas externas" as UC2
+  usecase "Gestionar roles\ny permisos (RBAC)" as UC3
+  usecase "Consultar log de auditoría" as UC4
+}
+
+Us --> UC1
+Us --> UC2
+Ad --> UC3
+Ad --> UC4
+@enduml
